@@ -1,0 +1,111 @@
+% ══════════════════════════════════════════════════════════════════════════════
+% Edexcel Further Mathematics (Core Pure 1) --- Shared LaTeX Preamble
+% Formatted to match the speed-maths design system
+% ══════════════════════════════════════════════════════════════════════════════
+
+\usepackage[a4paper, top=25mm, bottom=25mm, left=22mm, right=22mm]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{mdframed}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% ── Colours ───────────────────────────────────────────────────────────────────
+\definecolor{darkgray}{gray}{0.15}
+\definecolor{medgray}{gray}{0.45}
+\definecolor{lightgray}{gray}{0.94}
+\definecolor{boxgray}{gray}{0.88}
+
+% ── Section formatting ──────────────────────────────────────────────────────────
+\titleformat{\section}[block]
+  {\normalfont\large\bfseries}{}
+  {0pt}{}[\vspace{2pt}\hrule\vspace{6pt}]
+\titlespacing*{\section}{0pt}{14pt}{4pt}
+
+% ── List formatting ─────────────────────────────────────────────────────────────
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=2em, itemsep=12pt}
+
+% ── Branding & Metadata ────────────────────────────────────────────────────────
+\newcommand{\EdexcelExamLine}{\textbf{Pearson Edexcel A-Level Further Maths:} Core Pure 1}
+\newcommand{\DocCredit}{Compendium by \textbf{Spartix1}}
+
+% ── Header / footer ─────────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\newcommand{\CPHeader}[2]{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \setlength{\headheight}{14pt}%
+  \fancyhead[L]{\small\textbf{Core Pure 1: #1}}%
+  \fancyhead[R]{\small Chapter \##2}%
+  \fancyfoot[L]{\small \EdexcelExamLine}%
+  \fancyfoot[C]{\small\thepage}%
+  \fancyfoot[R]{\small \DocCredit}%
+  \renewcommand{\footrulewidth}{0.4pt}%
+}
+
+% ── Title block ─────────────────────────────────────────────────────────────────
+\newcommand{\CPTitleBlock}[2]{%
+  \begin{center}
+    {\LARGE\bfseries #1}\\[4pt]
+    {\normalsize\itshape #2}\\[6pt]
+    \hrule\vspace{4pt}
+    \begin{tabular}{llcc}
+      \toprule
+      \textbf{Section} & \textbf{Focus} & \textbf{Questions} & \textbf{Target Marks}\\
+      \midrule
+      A & Procedural \& Direct Foundations   & 3 & 12--15 \\
+      B & Reverse Parameters \& Analysis     & 3 & 15--18 \\
+      C & Proof, Geometry \& Rigorous Multi-step & 4 & 24--30 \\
+      \bottomrule
+    \end{tabular}
+    \vspace{4pt}
+    \hrule
+  \end{center}
+}
+
+% ── Answer / Method / Investigate-further boxes ────────────────────────────────
+\newmdenv[
+  backgroundcolor=lightgray,
+  linecolor=medgray,
+  linewidth=0.5pt,
+  leftmargin=0pt, rightmargin=0pt,
+  innerleftmargin=8pt, innerrightmargin=8pt,
+  innertopmargin=5pt, innerbottommargin=5pt,
+  skipabove=4pt, skipbelow=4pt
+]{ansbox}
+
+\newmdenv[
+  backgroundcolor=white,
+  linecolor=darkgray,
+  linewidth=0.8pt,
+  leftline=true, rightline=false, topline=false, bottomline=false,
+  leftmargin=0pt, rightmargin=0pt,
+  innerleftmargin=8pt, innerrightmargin=6pt,
+  innertopmargin=4pt, innerbottommargin=4pt,
+  skipabove=4pt, skipbelow=6pt
+]{invbox}
+
+\newcommand{\ans}[1]{%
+  \begin{ansbox}
+    \textbf{Answer:} #1
+  \end{ansbox}}
+
+\newcommand{\method}[1]{%
+  {\small\textbf{Method:} #1}\par}
+
+\newcommand{\inv}[1]{%
+  \begin{invbox}
+    \textbf{\small Investigate further:} {\small #1}
+  \end{invbox}}
+
+\newcommand{\qn}[1]{\textbf{#1.}\;}
