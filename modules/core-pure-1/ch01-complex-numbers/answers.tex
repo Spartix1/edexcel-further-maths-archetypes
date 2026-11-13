@@ -9,73 +9,226 @@
 
 \section*{Section A \quad Procedural \& Direct Foundations}
 \begin{enumerate}
+
 %── Q1 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Division in Cartesian form via complex conjugate multiplication}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q1: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\item \textbf{[DIR]} Cartesian arithmetic, conjugate division, and modulus.
+\ans{
+(a) $-\dfrac{5}{17} - \dfrac{14}{17}i$ \qquad (b) $30$ \qquad (c) $z_1^* = 3 + 2i$
+}
+\method{
+\textbf{(a)} M1: Multiply numerator and denominator by $z_2^* = 1 - 4i$.
+\[
+\frac{3 - 2i}{1 + 4i} \times \frac{1 - 4i}{1 - 4i} = \frac{3 - 12i - 2i + 8i^2}{1^2 - (4i)^2}
+\]
+A1: Correct expansion of numerator ($3 - 14i - 8 = -5 - 14i$) and denominator ($1 + 16 = 17$).
+A1: Explicitly writes answer in Cartesian form $-\frac{5}{17} - \frac{14}{17}i$.\\
+\textbf{(b)} M1: Uses $|z|^2 = x^2 + y^2$. $|z_1|^2 = 3^2 + (-2)^2 = 13$ and $|z_2|^2 = 1^2 + 4^2 = 17$.
+A1: Sum $= 13 + 17 = 30$.\\
+\textbf{(c)} B1: $3 + 2i$.
+}
+\inv{
+Notice that $|z_1 z_2|^2 = |z_1|^2 |z_2|^2 = 13 \times 17 = 221$. Brahmagupta's Fibonacci identity states $(a^2+b^2)(c^2+d^2) = (ac-bd)^2 + (ad+bc)^2$. Verify this identity by writing $z_1 z_2 = (3-2i)(1+4i) = 11 + 10i$ and computing $|11 + 10i|^2$.
+}
 
 %── Q2 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Simplification of high integer powers of $i$ and imaginary arithmetic}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q2: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\item \textbf{[DIR]} Modulus, argument, and powers of complex numbers.
+\ans{
+(a) $|w| = 4$ \qquad (b) $\arg(w) = \dfrac{5\pi}{6}$ \qquad (c) $w^3 = 64i$
+}
+\method{
+\textbf{(a)} B1: $|w| = \sqrt{(-2\sqrt{3})^2 + 2^2} = \sqrt{12 + 4} = 4$.\\
+\textbf{(b)} M1: Identifies second quadrant and sets $\arg(w) = \pi - \arctan\left(\frac{2}{2\sqrt{3}}\right) = \pi - \frac{\pi}{6}$.
+A1: Exact answer $\frac{5\pi}{6}$.\\
+\textbf{(c)} M1: Uses de Moivre's or polar powers: $w^3 = 4^3 \left(\cos\left(3 \times \frac{5\pi}{6}\right) + i\sin\left(3 \times \frac{5\pi}{6}\right)\right) = 64\left(\cos\frac{5\pi}{2} + i\sin\frac{5\pi}{2}\right)$.
+A1: $64(0 + i) = 64i$ (or by algebraic expansion).
+}
+\inv{
+What are the other two cube roots of $64i$? Express them in modulus-argument form $r e^{i\theta}$ and verify that the three roots form an equilateral triangle centered at the origin on the Argand plane.
+}
 
 %── Q3 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Solving quadratic equations with negative discriminant in $\mathbb{C}$}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q3: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\item \textbf{[DIR]} Solving quadratic equations with negative discriminant.
+\ans{
+(a) $z = 3 \pm i\sqrt{5}$ \qquad (b) Points plotted at $(3, \sqrt{5})$ and $(3, -\sqrt{5})$
+}
+\method{
+\textbf{(a)} M1: Divides by 2 or applies quadratic formula directly: $z^2 - 6z + 14 = 0 \implies (z - 3)^2 - 9 + 14 = 0$.
+M1: $(z - 3)^2 = -5 \implies z - 3 = \pm i\sqrt{5}$.
+A1: $z = 3 \pm i\sqrt{5}$ ($p = 3, q = 5$).\\
+\textbf{(b)} B1: Real and imaginary axes correctly oriented with origin labelled.
+B1: Both points clearly plotted with reflectional symmetry across the real axis and coordinates or labels $(3, \pm\sqrt{5})$ indicated.
+}
+\inv{
+Why does any quadratic $az^2 + bz + c = 0$ with $a, b, c \in \mathbb{R}$ have roots that are either both real or a complex conjugate pair? What happens to the geometry of the roots on the Argand plane as the constant term $c$ increases while $a$ and $b$ remain fixed?
+}
 
 \end{enumerate}
 
 \section*{Section B \quad Reverse Parameters \& Analysis}
 \begin{enumerate}[resume]
+
 %── Q4 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Finding square roots of a complex number $a + bi$ via simultaneous equations}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q4: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\item \textbf{[REV]} Square roots of complex numbers and quadratic equations.
+\ans{
+(a) $\pm(3 + 4i)$ \qquad (b) $z = 3 + 7i \quad \text{and} \quad z = -3 - i$
+}
+\method{
+\textbf{(a)} M1: Sets $(a + bi)^2 = -7 + 24i$ and expands to $a^2 - b^2 + 2abi = -7 + 24i$.
+M1: Equates real and imaginary parts: $a^2 - b^2 = -7$ and $2ab = 24 \implies b = \frac{12}{a}$.
+M1: Substitutes to form 3-term quadratic in $a^2$: $a^2 - \frac{144}{a^2} = -7 \implies a^4 + 7a^2 - 144 = 0$.
+A1: Factorises $(a^2 + 16)(a^2 - 9) = 0$; rejects $a^2 = -16$ since $a \in \mathbb{R}$, deducing $a = \pm 3$.
+A1: Pairs correct signs ($2ab > 0$): $\pm(3 + 4i)$.\\
+\textbf{(b)} M1: $z - 3i = \pm(3 + 4i) \implies z = 3i \pm (3 + 4i)$.
+A1: Both roots correct: $z_1 = 3 + 7i$, $z_2 = -3 - i$.
+}
+\inv{
+Could you find the square roots of $-7 + 24i$ by converting to polar form? Calculate $r = |-7 + 24i| = \sqrt{49 + 576} = 25$. Use the half-angle formulas $\cos\frac{\theta}{2} = \sqrt{\frac{1+\cos\theta}{2}}$ and $\sin\frac{\theta}{2} = \sqrt{\frac{1-\cos\theta}{2}}$ with $\cos\theta = -\frac{7}{25}$ to deduce $3 + 4i$ trigonometrically.
+}
 
 %── Q5 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Equating real and imaginary parts to solve for unknown real parameters}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q5: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\item \textbf{[REV]} Simultaneous equations with complex numbers and conjugates.
+\ans{
+$x = 2, \quad y = 3 \quad (\text{so } z = 2 + 3i)$
+}
+\method{
+M1: Substitutes $z = x + iy$ and $z^* = x - iy$ into the given equation:
+\[
+2(x + iy) + 3i(x - iy) = 13 + 12i
+\]
+M1: Expands carefully, replacing $i^2$ with $-1$:
+\[
+2x + 2iy + 3ix - 3i^2 y = 2x + 3y + i(3x + 2y)
+\]
+A1: Equates real parts: $2x + 3y = 13$.
+A1: Equates imaginary parts: $3x + 2y = 12$.
+M1: Solves simultaneous linear equations (e.g. $3(1) - 2(2) \implies 5y = 39 - 24 = 15$).
+A1: $x = 2$ and $y = 3$.
+}
+\inv{
+Represent this linear system as a matrix equation $\begin{pmatrix} 2 & 3 \\ 3 & 2 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 13 \\ 12 \end{pmatrix}$. What is the geometric meaning of the transformation matrix? When would such an equation $az + bi z^* = w$ have no unique solution?
+}
 
 %── Q6 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Formal proof of the Conjugate Pair Theorem for real-coefficient polynomials}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q6: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\item \textbf{[PRF]} Conjugate Root Theorem and cubic polynomials.
+\ans{
+(a) $z_2 = 1 - 2i$ \qquad (b) $z_3 = \dfrac{3}{2}$ \qquad (c) Complete algebraic proof
+}
+\method{
+\textbf{(a)} B1: $1 - 2i$.\\
+\textbf{(b)} M1: Forms the quadratic factor from conjugate pair:
+\[
+(z - (1+2i))(z - (1-2i)) = (z - 1)^2 - (2i)^2 = z^2 - 2z + 5
+\]
+M1: Divides $f(z)$ by $z^2 - 2z + 5$ or compares coefficients:
+\[
+2z^3 - 7z^2 + 16z - 15 = (z^2 - 2z + 5)(2z - 3)
+\]
+A1: $2z - 3 = 0 \implies z = \frac{3}{2}$.\\
+\textbf{(c)} B1: Takes the complex conjugate of the polynomial identity $P(z) = 0 \implies \overline{P(z)} = \overline{0} = 0$.
+B1: Uses conjugate properties $\overline{u+v} = \bar{u}+\bar{v}$ and $\overline{u \cdot v} = \bar{u} \cdot \bar{v}$ with real coefficients $\bar{a}_k = a_k$ to show $P(\bar{z}) = \sum a_k \bar{z}^k = \overline{P(z)} = 0$.
+}
+\inv{
+If a polynomial has degree $n$, what is the maximum number of non-real roots it can possess? Why must every odd-degree polynomial with real coefficients have at least one real root?
+}
 
 \end{enumerate}
 
 \section*{Section C \quad Proof, Geometry \& Multi-step}
 \begin{enumerate}[resume]
-%── Q7 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Solving a cubic equation with real coefficients given one non-real root}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q7: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
 
-%── Q8 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Solving a quartic equation with real coefficients given one non-real root}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q8: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+%── Q7 [REV] ─────────────────────────────────────────────────────────────
+\item \textbf{[REV]} Quartic polynomial with unknown real parameters.
+\ans{
+(a) $z_2 = 1 + 3i$ \qquad (b) $p = -24, \quad q = 20$ \qquad (c) $z = 1 \pm i$
+}
+\method{
+\textbf{(a)} B1: $1 + 3i$.\\
+\textbf{(b)} M1: Forms quadratic factor for the given pair:
+\[
+(z - (1-3i))(z - (1+3i)) = (z - 1)^2 - (3i)^2 = z^2 - 2z + 10
+\]
+M1: Let the other quadratic factor be $z^2 + bz + c$. Expands $(z^2 - 2z + 10)(z^2 + bz + c)$:
+\[
+z^4 + (b - 2)z^3 + (c - 2b + 10)z^2 + (bc - 2c)z + 10c
+\]
+M1: Compares $z^3$ coefficient: $b - 2 = -4 \implies b = -2$.
+Compares $z^2$ coefficient: $c - 2(-2) + 10 = 16 \implies c + 14 = 16 \implies c = 2$.
+A1: Both coefficients correct:
+\[
+p = bc - 2c = (-2)(2) - 2(2) = -24 \quad \text{and} \quad q = 10c = 10(2) = 20
+\]
+\textbf{(c)} M1: Solves the second quadratic factor $z^2 - 2z + 2 = 0 \implies (z-1)^2 = -1$.
+A1: $z = 1 \pm i$.
+}
+\inv{
+Plot all four roots on an Argand diagram: $1 \pm 3i$ and $1 \pm i$. Notice that all four roots share the exact same real part ($\text{Re}(z) = 1$). What geometric shape do these four points form in the complex plane?
+}
+
+%── Q8 [GEO] ─────────────────────────────────────────────────────────────
+\item \textbf{[GEO]} Geometric relations and circumcircles on the Argand plane.
+\ans{
+(a) $|z_1| = 2\sqrt{5}, \quad |z_2| = 2\sqrt{5}$ \qquad (b) Proof that $\angle POQ = \dfrac{\pi}{2}$ \qquad (c) Centre: $1 + 3i$, Radius: $\sqrt{10}$
+}
+\method{
+\textbf{(a)} B1: $|z_1| = \sqrt{4^2 + 2^2} = \sqrt{20} = 2\sqrt{5}$.
+B1: $|z_2| = \sqrt{(-2)^2 + 4^2} = \sqrt{20} = 2\sqrt{5}$.\\
+\textbf{(b)} M1: Evaluates quotient $\frac{z_2}{z_1}$:
+\[
+\frac{-2 + 4i}{4 + 2i} = \frac{(-2 + 4i)(4 - 2i)}{4^2 + 2^2} = \frac{-8 + 4i + 16i + 8}{20} = \frac{20i}{20} = i
+\]
+A1: Deduces $\arg\left(\frac{z_2}{z_1}\right) = \arg(i) = \frac{\pi}{2}$, hence $\angle POQ = \frac{\pi}{2}$ (or via dot product / Pythagoras: $OP^2 + OQ^2 = 20 + 20 = 40 = PQ^2$).\\
+\textbf{(c)} M1: By Thales' theorem, the hypotenuse $PQ$ is the diameter of the circumcircle.
+M1: Centre is the midpoint of $PQ$: $\frac{z_1 + z_2}{2} = \frac{(4 - 2) + (2 + 4)i}{2} = 1 + 3i$.
+A1: Centre $= 1 + 3i$, Radius $R = \frac{1}{2}|PQ| = \frac{1}{2}\sqrt{40} = \sqrt{10}$.
+}
+\inv{
+Since $\frac{z_2}{z_1} = i$, multiplying any complex number by $i$ represents an anticlockwise rotation by $90^\circ$ ($\frac{\pi}{2}$ radians). Check this algebraically: $(x + iy) \times i = -y + ix$. Does this always leave the distance from the origin unchanged?
+}
 
 %── Q9 [SYN] ─────────────────────────────────────────────────────────────
-\item \textbf{[SYN]} \textit{Complex numbers in identity expansions and binomial applications}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q9: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+\item \textbf{[SYN]} Binomial expansion and exact trigonometric deductions.
+\ans{
+(a) $(2 - i)^4 = -7 - 24i$ \qquad (b) $\tan(4\theta) = -\dfrac{24}{7}$
+}
+\method{
+\textbf{(a)} M1: States binomial formula $\sum_{k=0}^4 \binom{4}{k} 2^{4-k} (-i)^k$.
+M1: Evaluates coefficients and signs:
+\[
+2^4 + 4(2^3)(-i) + 6(2^2)(-i)^2 + 4(2)(-i)^3 + (-i)^4
+\]
+A1: $16 - 32i + 24(-1) + 8i + 1 = 16 - 24 + 1 - 24i$.
+A1: $-7 - 24i$.\\
+\textbf{(b)} M1: Identifies $\arg((2 - i)^4) = 4\arg(2 - i) = -4\theta$.
+M1: Since $(2 - i)^4 = -7 - 24i$, $\tan(-4\theta) = \frac{-24}{-7} = \frac{24}{7}$.
+A1: Since $\tan(-x) = -\tan(x)$, $\tan(4\theta) = -\frac{24}{7}$.
+}
+\inv{
+Verify part (b) using the tangent double-angle formula $\tan(2\alpha) = \frac{2\tan\alpha}{1-\tan^2\alpha}$ with $\tan\theta = \frac{1}{2}$. First find $\tan(2\theta) = \frac{4}{3}$, then compute $\tan(4\theta) = \frac{2(4/3)}{1 - 16/9} = -\frac{24}{7}$. Notice how complex multiplication provides a rapid algebraic shortcut to multiple-angle trigonometry!
+}
 
-%── Q10 [SYN] ─────────────────────────────────────────────────────────────
-\item \textbf{[SYN]} \textit{Quadratic equations with complex coefficients (non-conjugate roots)}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q10: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+%── Q10 [SYN] ────────────────────────────────────────────────────────────
+\item \textbf{[SYN]} Quadratic equations with complex coefficients.
+\ans{
+(a) $z_1 = 3 + i, \quad z_2 = 1 - 2i$ \qquad (b) Proof that conjugate pair theorem requires real coefficients
+}
+\method{
+\textbf{(a)} M1: Applies quadratic formula to $z^2 - (4 - i)z + (5 - 5i) = 0$:
+\[
+\Delta = (-(4 - i))^2 - 4(1)(5 - 5i) = (15 - 8i) - (20 - 20i) = -5 + 12i
+\]
+M1: Finds square roots of $\Delta = -5 + 12i$: $(a + bi)^2 = -5 + 12i \implies a^2 - b^2 = -5, 2ab = 12 \implies \sqrt{\Delta} = \pm(2 + 3i)$.
+M1: Substitutes into formula:
+\[
+z = \frac{(4 - i) \pm (2 + 3i)}{2}
+\]
+A1: $z_1 = \frac{(4+2) + (-1+3)i}{2} = \frac{6 + 2i}{2} = 3 + i$.
+A1: $z_2 = \frac{(4-2) + (-1-3)i}{2} = \frac{2 - 4i}{2} = 1 - 2i$.\\
+\textbf{(b)} B1: States that the roots $3+i$ and $1-2i$ are clearly not conjugates of one another ($(3+i)^* = 3-i \neq 1-2i$).
+B1: Explains that the Conjugate Root Theorem strictly requires \textbf{all polynomial coefficients to be real numbers}. Here the coefficients $-(4-i)$ and $(5-5i)$ are non-real, breaking the conjugation symmetry.
+}
+\inv{
+Let a general quadratic have complex coefficients: $z^2 - Sz + P = 0$. If the roots are $z_1 = r_1 e^{i\theta_1}$ and $z_2 = r_2 e^{i\theta_2}$, under what necessary and sufficient conditions on $S$ and $P$ will $z_1$ and $z_2$ be complex conjugates?
+}
 
 \end{enumerate}
 
