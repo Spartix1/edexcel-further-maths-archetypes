@@ -185,11 +185,11 @@ def make_problem_sheet_content(ch):
         f"\\CPHeader{{{ch['title']}}}{{{ch['num']}}}",
         r"",
         r"\begin{document}",
+        r"\thispagestyle{plain}",
         r"",
-        f"\\CPTitleBlock{{Core Pure 1: {ch['title']}}}{{Problem Sheet \\#{ch['num']} --- {ch['subtitle']}}}",
-        r"\noindent\textit{Instructions: Answer all questions. Fully justify your mathematical reasoning. Show all algebraic steps.}",
+        f"\\CPTitleBlock{{{ch['title']}}}{{Problem Sheet \\#{ch['num']} \\enspace$\\cdot$\\enspace {ch['subtitle']}}}",
         r"",
-        r"\section*{Section A \quad Procedural \& Direct Foundations \hfill{\normalfont\small(Questions 1--3)}}",
+        r"\section*{Section A \quad Procedural \& Direct Foundations \hfill{\normalfont\footnotesize(Questions 1--3)}}",
         r"\begin{enumerate}"
     ]
 
@@ -235,11 +235,12 @@ def make_problem_sheet_content(ch):
 
     lines.append(r"\end{enumerate}")
     lines.append(r"")
-    lines.append(r"\vspace{15pt}")
+    lines.append(r"\vspace{14pt}")
     lines.append(r"\begin{center}")
-    lines.append(r"\rule{0.6\textwidth}{0.4pt}\\[4pt]")
-    lines.append(r"{\small\itshape ``Mathematics is not about numbers, equations, computations, or algorithms: it is about understanding.''}\\[4pt]")
-    lines.append(r"\rule{0.6\textwidth}{0.4pt}")
+    lines.append(r"  {\color{accentline}\rule{0.4\textwidth}{0.4pt}}\\[5pt]")
+    lines.append(r"  {\footnotesize\itshape\color{medgray} ``Mathematics is not about numbers, equations, computations, or algorithms: it is about understanding.''}\\[2pt]")
+    lines.append(r"  {\scriptsize\scshape\color{medgray} William Paul Thurston}\\[5pt]")
+    lines.append(r"  {\color{accentline}\rule{0.4\textwidth}{0.4pt}}")
     lines.append(r"\end{center}")
     lines.append(r"")
     lines.append(r"\end{document}")
@@ -253,9 +254,9 @@ def make_answers_content(ch):
         f"\\CPHeader{{{ch['title']}}}{{{ch['num']}}}",
         r"",
         r"\begin{document}",
+        r"\thispagestyle{plain}",
         r"",
-        f"\\CPTitleBlock{{Core Pure 1: {ch['title']} --- Answers \\& Investigations}}{{Worked Solutions, Mark Criteria \\& Deep Investigative Prompts}}",
-        r"\noindent\textit{Notice: Every question features a concise answer, detailed method criteria (M/A/B marks), and a dedicated investigation prompt to build structural insight.}",
+        f"\\CPTitleBlock{{{ch['title']}}}{{Answers \\& Investigations \\enspace$\\cdot$\\enspace Worked Solutions, Mark Schemes \\& Deep Prompts}}",
         r"",
         r"\section*{Section A \quad Procedural \& Direct Foundations}",
         r"\begin{enumerate}"
@@ -307,6 +308,9 @@ def make_answers_content(ch):
 def main():
     print(f"Generating drafts for all {len(CHAPTERS)} chapters of Core Pure 1...")
     for ch in CHAPTERS:
+        if ch["id"] == "ch01-complex-numbers":
+            print(f"  ⏭️  {ch['id']}: already fully authored. Skipping draft overwrite.")
+            continue
         ch_dir = os.path.join(CP1_DIR, ch["id"])
         os.makedirs(ch_dir, exist_ok=True)
 

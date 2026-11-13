@@ -1,9 +1,9 @@
 % ══════════════════════════════════════════════════════════════════════════════
 % Edexcel Further Mathematics (Core Pure 1) --- Shared LaTeX Preamble
-% Formatted to match the speed-maths design system
+% Elegant, Minimalist & Aesthetic Academic Design System
 % ══════════════════════════════════════════════════════════════════════════════
 
-\usepackage[a4paper, top=25mm, bottom=25mm, left=22mm, right=22mm]{geometry}
+\usepackage[a4paper, top=22mm, bottom=22mm, left=20mm, right=20mm]{geometry}
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{enumitem}
 \usepackage{booktabs}
@@ -20,79 +20,78 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 
-% ── Colours ───────────────────────────────────────────────────────────────────
-\definecolor{darkgray}{gray}{0.15}
-\definecolor{medgray}{gray}{0.45}
-\definecolor{lightgray}{gray}{0.94}
-\definecolor{boxgray}{gray}{0.88}
+% ── Refined Palette ───────────────────────────────────────────────────────────
+\definecolor{primary}{gray}{0.10}
+\definecolor{darkgray}{gray}{0.20}
+\definecolor{medgray}{gray}{0.50}
+\definecolor{lightgray}{gray}{0.96}
+\definecolor{boxgray}{gray}{0.85}
+\definecolor{accentline}{gray}{0.75}
 
 % ── Section formatting ──────────────────────────────────────────────────────────
 \titleformat{\section}[block]
-  {\normalfont\large\bfseries}{}
-  {0pt}{}[\vspace{2pt}\hrule\vspace{6pt}]
-\titlespacing*{\section}{0pt}{14pt}{4pt}
+  {\normalfont\bfseries\color{primary}}{}
+  {0pt}{}[\vspace{1pt}{\color{accentline}\rule{\textwidth}{0.4pt}}\vspace{4pt}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
 
 % ── List formatting ─────────────────────────────────────────────────────────────
-\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=2em, itemsep=12pt}
+\setlist[enumerate,1]{label=\textbf{\arabic*.}, leftmargin=1.8em, itemsep=14pt}
+\setlist[enumerate,2]{label=\textbf{(\alph*)}, leftmargin=1.8em, itemsep=6pt}
 
-% ── Branding & Metadata ────────────────────────────────────────────────────────
-\newcommand{\EdexcelExamLine}{\textbf{Pearson Edexcel A-Level Further Maths:} Core Pure 1}
-\newcommand{\DocCredit}{Compendium by \textbf{Spartix1}}
-
-% ── Header / footer ─────────────────────────────────────────────────────────────
+% ── Header / footer (Overlaps permanently eliminated) ─────────────────────────
 \pagestyle{fancy}
 \newcommand{\CPHeader}[2]{%
   \fancyhf{}%
-  \renewcommand{\headrulewidth}{0.4pt}%
   \setlength{\headheight}{14pt}%
-  \fancyhead[L]{\small\textbf{Core Pure 1: #1}}%
-  \fancyhead[R]{\small Chapter \##2}%
-  \fancyfoot[L]{\small \EdexcelExamLine}%
-  \fancyfoot[C]{\small\thepage}%
-  \fancyfoot[R]{\small \DocCredit}%
-  \renewcommand{\footrulewidth}{0.4pt}%
+  \renewcommand{\headrulewidth}{0.3pt}%
+  \renewcommand{\headrule}{\hbox to\headwidth{\color{accentline}\leaders\hrule height \headrulewidth\hfill}}%
+  \fancyhead[L]{\footnotesize\scshape\color{medgray} Core Pure 1: #1}%
+  \fancyhead[R]{\footnotesize\color{medgray} Chapter \##2}%
+  \renewcommand{\footrulewidth}{0.3pt}%
+  \renewcommand{\footrule}{\hbox to\headwidth{\color{accentline}\leaders\hrule height \footrulewidth\hfill}}%
+  \fancyfoot[L]{\footnotesize\color{medgray} Pearson Edexcel A-Level Further Mathematics $\cdot$ Core Pure 1}%
+  \fancyfoot[C]{}% No center text to ensure zero collision with long titles
+  \fancyfoot[R]{\footnotesize\color{medgray} \textbf{Henry.K} \enspace$\vert$\enspace Page \thepage}%
 }
 
-% ── Title block ─────────────────────────────────────────────────────────────────
+% ── Elegant Aesthetic Title Block ──────────────────────────────────────────────
 \newcommand{\CPTitleBlock}[2]{%
+  \vspace*{-8pt}
   \begin{center}
-    {\LARGE\bfseries #1}\\[4pt]
-    {\normalsize\itshape #2}\\[6pt]
-    \hrule\vspace{4pt}
-    \begin{tabular}{llcc}
-      \toprule
-      \textbf{Section} & \textbf{Focus} & \textbf{Questions} & \textbf{Target Marks}\\
-      \midrule
-      A & Procedural \& Direct Foundations   & 3 & 12--15 \\
-      B & Reverse Parameters \& Analysis     & 3 & 15--18 \\
-      C & Proof, Geometry \& Rigorous Multi-step & 4 & 24--30 \\
-      \bottomrule
-    \end{tabular}
-    \vspace{4pt}
-    \hrule
+    {\footnotesize\scshape\color{medgray} Pearson Edexcel A-Level Further Mathematics \enspace$\cdot$\enspace Core Pure 1}\\[4pt]
+    {\LARGE\bfseries\color{primary} #1}\\[4pt]
+    {\small\color{darkgray} #2}\\[6pt]
+    {\footnotesize\color{medgray} Problem Series authored by \textbf{Henry.K} \quad$\cdot$\quad 10 Exam Archetypes \quad$\cdot$\quad 65 Total Marks}\\[8pt]
+    {\color{accentline}\rule{\textwidth}{0.5pt}}
   \end{center}
+  \vspace{-6pt}
+  \noindent{\footnotesize\itshape \textbf{Instructions:} Answer all ten questions. Full algebraic working must be shown for method marks; unsupported answers from calculators will not gain full credit. Give exact values in surd or fractional form unless specified otherwise.}\par
+  \vspace{3pt}
+  {\color{accentline}\rule{\textwidth}{0.5pt}}
+  \vspace{8pt}
 }
 
 % ── Answer / Method / Investigate-further boxes ────────────────────────────────
 \newmdenv[
   backgroundcolor=lightgray,
-  linecolor=medgray,
+  linecolor=boxgray,
   linewidth=0.5pt,
+  roundcorner=3pt,
   leftmargin=0pt, rightmargin=0pt,
-  innerleftmargin=8pt, innerrightmargin=8pt,
-  innertopmargin=5pt, innerbottommargin=5pt,
-  skipabove=4pt, skipbelow=4pt
+  innerleftmargin=10pt, innerrightmargin=10pt,
+  innertopmargin=6pt, innerbottommargin=6pt,
+  skipabove=5pt, skipbelow=5pt
 ]{ansbox}
 
 \newmdenv[
-  backgroundcolor=white,
+  backgroundcolor=lightgray!40,
   linecolor=darkgray,
-  linewidth=0.8pt,
+  linewidth=1.2pt,
   leftline=true, rightline=false, topline=false, bottomline=false,
   leftmargin=0pt, rightmargin=0pt,
-  innerleftmargin=8pt, innerrightmargin=6pt,
-  innertopmargin=4pt, innerbottommargin=4pt,
-  skipabove=4pt, skipbelow=6pt
+  innerleftmargin=10pt, innerrightmargin=8pt,
+  innertopmargin=5pt, innerbottommargin=5pt,
+  skipabove=5pt, skipbelow=7pt
 ]{invbox}
 
 \newcommand{\ans}[1]{%
@@ -101,11 +100,11 @@
   \end{ansbox}}
 
 \newcommand{\method}[1]{%
-  {\small\textbf{Method:} #1}\par}
+  {\small\textbf{Method Criteria:}\par\vspace{2pt}#1}\par}
 
 \newcommand{\inv}[1]{%
   \begin{invbox}
-    \textbf{\small Investigate further:} {\small #1}
+    \textbf{\small Deep Investigation:} {\small #1}
   \end{invbox}}
 
 \newcommand{\qn}[1]{\textbf{#1.}\;}
