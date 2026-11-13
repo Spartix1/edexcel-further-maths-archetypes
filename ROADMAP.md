@@ -8,9 +8,9 @@ This roadmap tracks all chapters across the four target Edexcel Further Mathemat
 
 - [x] **Chapter 1: Complex Numbers** — Basic arithmetic, Cartesian form, complex conjugates, solving quadratics/cubics/quartics.
 - [x] **Chapter 2: Argand Diagrams** — Modulus-argument form, multiplying/dividing in polar form, basic loci ($|z - z_1| = r$, $|z - z_1| = |z - z_2|$).
-- [ ] **Chapter 3: Series** — Standard summations ($\sum r, \sum r^2, \sum r^3$), method of differences, finding general sum $S_n$.
-- [ ] **Chapter 4: Roots of Polynomials** — Vieta's formulas for quadratics, cubics, quartics; forming new equations with transformed roots ($w = 2\alpha - 1$).
-- [ ] **Chapter 5: Volumes of Revolution** — Rotation around $x$-axis and $y$-axis; compound shapes and hollow solids.
+- [x] **Chapter 3: Series** — Standard summations ($\sum r, \sum r^2, \sum r^3$), method of differences, finding general sum $S_n$.
+- [x] **Chapter 4: Roots of Polynomials** — Vieta's formulas for quadratics, cubics, quartics; forming new equations with transformed roots ($w = 2\alpha - 1$).
+- [x] **Chapter 5: Volumes of Revolution** — Rotation around $x$-axis and $y$-axis; compound shapes and hollow solids.
 - [ ] **Chapter 6: Matrices** — $2\times2$ and $3\times3$ addition, multiplication, determinants, inverses; solving simultaneous equations; consistency and geometric arrangements of planes.
 - [ ] **Chapter 7: Linear Transformations** — $2\times2$ and $3\times3$ transformation matrices; invariant points and invariant lines; area scale factor ($|\det M|$).
 - [ ] **Chapter 8: Proof by Mathematical Induction** — Summation proofs, divisibility proofs, matrix power proofs, recurrence relation proofs.
