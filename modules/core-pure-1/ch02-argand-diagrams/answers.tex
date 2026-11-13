@@ -9,74 +9,208 @@
 
 \section*{Section A \quad Procedural \& Direct Foundations}
 \begin{enumerate}
+
 %── Q1 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Modulus and principal argument determination with $-\pi < \theta \le \pi$}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q1: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\item \textbf{[DIR]} Modulus and exact principal argument in radians.
+\ans{
+(a) $|z_1| = 2, \quad \arg(z_1) = \dfrac{2\pi}{3}$ \qquad (b) $|z_2| = 2\sqrt{2}, \quad \arg(z_2) = -\dfrac{\pi}{4}$ \qquad (c) $\left|\dfrac{z_1}{z_2}\right| = \dfrac{\sqrt{2}}{2}, \quad \arg\left(\dfrac{z_1}{z_2}\right) = \dfrac{11\pi}{12}$
+}
+\method{
+\textbf{(a)} B1: $|z_1| = \sqrt{(-1)^2 + (\sqrt{3})^2} = \sqrt{4} = 2$.
+M1: Point in quadrant 2; $\arg(z_1) = \pi - \arctan(\sqrt{3}) = \pi - \frac{\pi}{3}$.
+A1: $\arg(z_1) = \frac{2\pi}{3}$.\\
+\textbf{(b)} B1: $|z_2| = \sqrt{2^2 + (-2)^2} = \sqrt{8} = 2\sqrt{2}$.
+M1: Point in quadrant 4; $\arg(z_2) = -\arctan\left(\frac{2}{2}\right)$.
+A1: $\arg(z_2) = -\frac{\pi}{4}$.\\
+\textbf{(c)} B1: $\left|\frac{z_1}{z_2}\right| = \frac{|z_1|}{|z_2|} = \frac{2}{2\sqrt{2}} = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}$.
+M1: $\arg\left(\frac{z_1}{z_2}\right) = \arg(z_1) - \arg(z_2) = \frac{2\pi}{3} - \left(-\frac{\pi}{4}\right) = \frac{8\pi + 3\pi}{12}$.
+A1: $\frac{11\pi}{12}$.
+}
+\inv{
+Notice that $\frac{11\pi}{12} = \frac{2\pi}{3} + \frac{\pi}{4}$ lies within the principal argument interval $(-\pi, \pi]$. What would happen if $\arg(z_1) - \arg(z_2)$ exceeded $\pi$? How do you adjust by $\pm 2\pi$ to maintain the principal value?
+}
 
 %── Q2 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Multiplication and division in polar / modulus-argument form}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q2: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\item \textbf{[DIR]} Polar multiplication, division, and integer powers.
+\ans{
+(a) $8\left(\cos\dfrac{\pi}{2} + i\sin\dfrac{\pi}{2}\right)$ \qquad (b) $8i$ \qquad (c) $64$
+}
+\method{
+\textbf{(a)} M1: Multiplies moduli and adds arguments:
+\[
+r = 4 \times 2 = 8, \quad \theta = \frac{5\pi}{6} + \left(-\frac{\pi}{3}\right) = \frac{5\pi - 2\pi}{6} = \frac{3\pi}{6} = \frac{\pi}{2}
+\]
+A1: $8\left(\cos\frac{\pi}{2} + i\sin\frac{\pi}{2}\right)$.\\
+\textbf{(b)} B1: $8(0 + i) = 8i$.\\
+\textbf{(c)} M1: Uses de Moivre's theorem on $w_2$:
+\[
+(w_2)^6 = 2^6 \left(\cos\left(6 \times \left(-\frac{\pi}{3}\right)\right) + i\sin\left(6 \times \left(-\frac{\pi}{3}\right)\right)\right) = 64(\cos(-2\pi) + i\sin(-2\pi))
+\]
+A1: $64(1 + 0i) = 64$.
+}
+\inv{
+Notice that $(w_2)^6$ is a positive real integer. For any complex number $z = r e^{i\theta}$, what are the smallest positive integer powers $n$ that guarantee $z^n$ is strictly real?
+}
 
 %── Q3 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{Circular locus: $|z - z_1| = r$ with geometric plotting and Cartesian form}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q3: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\item \textbf{[GEO]} Circle locus centre, radius, and Cartesian equation.
+\ans{
+(a) Circle with centre $(3, -4)$ and radius $5$ \qquad (b) Proof of passage through origin \qquad (c) $x^2 + y^2 - 6x + 8y = 0$
+}
+\method{
+\textbf{(a)} B1: Identifies standard form $|z - z_0| = r$ with $z_0 = 3 - 4i$. Centre is $(3, -4)$.
+B1: Radius $r = 5$.\\
+\textbf{(b)} B1: Evaluates at $z = 0$: $|0 - 3 + 4i| = |-3 + 4i| = \sqrt{(-3)^2 + 4^2} = \sqrt{25} = 5$, confirming the origin lies on the locus.\\
+\textbf{(c)} M1: Sets $z = x + iy \implies |(x - 3) + i(y + 4)| = 5 \implies (x - 3)^2 + (y + 4)^2 = 25$.
+A1: Expands to $x^2 - 6x + 9 + y^2 + 8y + 16 = 25 \implies x^2 + y^2 - 6x + 8y = 0$ ($a = -6, b = 8$).
+}
+\inv{
+Since this circle passes through the origin $(0,0)$, what is the equation of the tangent line to the circle at the origin? (Hint: The tangent is perpendicular to the radius connecting $(0,0)$ to $(3, -4)$).
+}
 
 \end{enumerate}
 
 \section*{Section B \quad Reverse Parameters \& Analysis}
 \begin{enumerate}[resume]
+
 %── Q4 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{Perpendicular bisector locus: $|z - z_1| = |z - z_2|$ and Cartesian line}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q4: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\item \textbf{[GEO]} Perpendicular bisector locus and Cartesian equation.
+\ans{
+(a) Perpendicular bisector of the segment joining $A(2, 3)$ and $B(-4, 1)$ \qquad (b) $y = -3x - 1$
+}
+\method{
+\textbf{(a)} B1: Identifies standard locus $|z - z_1| = |z - z_2|$ as a perpendicular bisector.
+B1: Specifies points $A(2, 3)$ and $B(-4, 1)$.\\
+\textbf{(b)} M1: Finds midpoint $M = \left(\frac{2 + (-4)}{2}, \frac{3 + 1}{2}\right) = (-1, 2)$.
+M1: Gradient of segment $AB$: $m_{AB} = \frac{1 - 3}{-4 - 2} = \frac{-2}{-6} = \frac{1}{3}$.
+Perpendicular gradient $m = -3$.
+A1: $y - 2 = -3(x - (-1)) \implies y - 2 = -3x - 3 \implies y = -3x - 1$.
+}
+\inv{
+Verify part (b) algebraically by substituting $z = x + iy$ directly: $(x - 2)^2 + (y - 3)^2 = (x + 4)^2 + (y - 1)^2$. Expand both sides and cancel $x^2 + y^2$ to derive $y = -3x - 1$. Which method is faster under exam conditions?
+}
 
 %── Q5 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{Half-line ray locus: $\arg(z - z_1) = \alpha$ with initial point exclusion}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q5: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\item \textbf{[GEO]} Half-line ray locus and domain restrictions.
+\ans{
+(a) Sketch with open initial point at $(-1, \sqrt{3})$ and inclination $\dfrac{\pi}{3}$ \qquad (b) $y = \sqrt{3}x + 2\sqrt{3}, \quad x > -1$
+}
+\method{
+\textbf{(a)} B1: Indicates initial point $(-1, \sqrt{3})$ with an open circle (not included).
+B1: Draws ray pointing into quadrant 1 at an angle of $\frac{\pi}{3}$ ($60^\circ$) to the positive horizontal.\\
+\textbf{(b)} M1: Gradient $m = \tan\frac{\pi}{3} = \sqrt{3}$.
+M1: Equation of line passing through $(-1, \sqrt{3})$: $y - \sqrt{3} = \sqrt{3}(x - (-1)) \implies y = \sqrt{3}x + 2\sqrt{3}$.
+A1: Correct equation and strictly states domain restriction $x > -1$.
+}
+\inv{
+Why must the initial point $(-1, \sqrt{3})$ be strictly excluded from the locus? (Hint: Consider the value of $\arg(0)$).
+}
 
 %── Q6 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{Composite inequalities and region shading on Argand diagrams}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q6: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\item \textbf{[GEO]} Shaded regions, boundary intersections, and exact area.
+\ans{
+(a) Correctly shaded region \qquad (b) Verification of points $(0,0)$ and $(2,2)$ \qquad (c) Exact Area $= \pi + 2$
+}
+\method{
+\textbf{(a)} B1: Circle centre $(0, 2)$, radius $2$ touching the real axis at origin.
+B1: Vertical boundary $x = 0$ (imaginary axis) and line $y = x$ ($\arg z = \frac{\pi}{4}$).
+B1: Region $R$ shaded correctly between the imaginary axis and $y = x$ inside the circle.\\
+\textbf{(b)} M1: Sets $y = x$ in $(x - 0)^2 + (y - 2)^2 = 4 \implies x^2 + (x - 2)^2 = 4$.
+A1: $2x^2 - 4x = 0 \implies x = 0$ (origin) and $x = 2 \implies y = 2$, yielding $P(2, 2)$.\\
+\textbf{(c)} M1: Connects centre $C(0, 2)$ to origin $(0, 0)$ and point $P(2, 2)$.
+Vectors are $(0, -2)$ and $(2, 0)$, which are perpendicular ($\angle OCP = \frac{\pi}{2}$).
+M1: Area consists of the right-angled triangle $OCP$ ($\text{Area} = \frac{1}{2} \times 2 \times 2 = 2$) plus the upper quarter-circle sector above $y = 2$ ($\text{Area} = \frac{1}{4}\pi(2^2) = \pi$).
+A1: Exact Area $= \pi + 2$.
+}
+\inv{
+Notice that the entire semicircle has area $\frac{1}{2}\pi(2^2) = 2\pi$. The remaining unshaded part of the semicircle has area $2\pi - (\pi + 2) = \pi - 2$. Verify this by calculating the area of the circular segment cut off by the chord from $(0,0)$ to $(2,2)$.
+}
 
 \end{enumerate}
 
 \section*{Section C \quad Proof, Geometry \& Multi-step}
 \begin{enumerate}[resume]
+
 %── Q7 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Optimization: Finding maximum and minimum values of $|z|$ on a circle}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q7: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+\item \textbf{[REV]} Extremum optimization of modulus on a circular locus.
+\ans{
+(a) $|z|_{\min} = 9, \quad |z|_{\max} = 17$ \qquad (b) $z_{\min} = \dfrac{45}{13} + \dfrac{108}{13}i$
+}
+\method{
+\textbf{(a)} M1: Identifies centre $z_0 = 5 + 12i$ and radius $r = 4$.
+Distance from origin to centre $d = |5 + 12i| = \sqrt{5^2 + 12^2} = 13$.
+A1: $|z|_{\min} = d - r = 13 - 4 = 9$.
+A1: $|z|_{\max} = d + r = 13 + 4 = 17$.\\
+\textbf{(b)} M1: The minimum point lies on the line from origin to centre $5 + 12i$ at distance 9.
+M1: Unit vector in direction of centre: $\mathbf{u} = \frac{5 + 12i}{13}$.
+A1: $z_{\min} = 9 \times \frac{5 + 12i}{13} = \frac{45}{13} + \frac{108}{13}i$.
+}
+\inv{
+What is the complex number $z_{\max}$ corresponding to the maximum modulus? Check that $|z_{\max} - z_{\min}| = 2r = 8$ (the diameter of the circle).
+}
 
 %── Q8 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Optimization: Finding maximum and minimum values of $\arg(z)$ via tangent lines}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q8: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+\item \textbf{[REV]} Extremum optimization of argument via geometric tangents.
+\ans{
+(a) Distance $= 8 > 4$ \qquad (b) $\theta_0 = \dfrac{\pi}{6}$ \qquad (c) Proof that $\alpha = \dfrac{\pi}{6}$ \qquad (d) $\arg(z)_{\min} = 0, \quad \arg(z)_{\max} = \dfrac{\pi}{3}$
+}
+\method{
+\textbf{(a)} B1: Distance $d = |4\sqrt{3} + 4i| = \sqrt{(4\sqrt{3})^2 + 4^2} = \sqrt{48 + 16} = \sqrt{64} = 8$.
+B1: Radius $r = 4$. Since $d = 8 > 4$, the origin lies strictly outside the circle.\\
+\textbf{(b)} B1: $\tan\theta_0 = \frac{4}{4\sqrt{3}} = \frac{1}{\sqrt{3}} \implies \theta_0 = \frac{\pi}{6}$.\\
+\textbf{(c)} M1: Tangent $OT$ is perpendicular to radius $CT$, so $\triangle OCT$ is right-angled at $T$.
+M1: $\sin\alpha = \frac{\text{Opposite}}{\text{Hypotenuse}} = \frac{r}{d} = \frac{4}{8} = \frac{1}{2}$.
+A1: $\alpha = \arcsin\left(\frac{1}{2}\right) = \frac{\pi}{6}$.\\
+\textbf{(d)} A1: $\arg(z)_{\min} = \theta_0 - \alpha = \frac{\pi}{6} - \frac{\pi}{6} = 0$.
+A1: $\arg(z)_{\max} = \theta_0 + \alpha = \frac{\pi}{6} + \frac{\pi}{6} = \frac{\pi}{3}$.
+}
+\inv{
+Notice that $\arg(z)_{\min} = 0$ means the circle is tangent to the positive real axis! Verify this by substituting $y = 0$ into the Cartesian equation $(x - 4\sqrt{3})^2 + (y - 4)^2 = 16$. It yields $(x - 4\sqrt{3})^2 + 16 = 16 \implies x = 4\sqrt{3}$ as a unique repeated root!
+}
 
 %── Q9 [SYN] ─────────────────────────────────────────────────────────────
-\item \textbf{[SYN]} \textit{Exact coordinate intersection of circular and half-line loci}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q9: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+\item \textbf{[SYN]} Coordinate intersection of circle and half-line loci.
+\ans{
+(a) Complete Argand diagram sketch \qquad (b) Derivation of $\dfrac{4}{3}x^2 - 8x = 0$ \qquad (c) $z = 6 + 2i\sqrt{3}$
+}
+\method{
+\textbf{(a)} B1: $L_1$ is a circle centre $(4, 0)$, radius $4$ touching the imaginary axis at origin.
+B1: $L_2$ is a half-line starting at origin at an angle of $\frac{\pi}{6}$.\\
+\textbf{(b)} M1: Cartesian equation of $L_1$: $(x - 4)^2 + y^2 = 16 \implies x^2 - 8x + y^2 = 0$.
+M1: Cartesian equation of $L_2$: $y = x\tan\frac{\pi}{6} = \frac{x}{\sqrt{3}} \implies y^2 = \frac{x^2}{3}$ (for $x > 0$).
+A1: Substitute $y^2 = \frac{x^2}{3}$: $x^2 - 8x + \frac{x^2}{3} = \frac{4}{3}x^2 - 8x = 0$.\\
+\textbf{(c)} M1: Factoring $x\left(\frac{4}{3}x - 8\right) = 0$; rejects $x = 0$ (half-line excludes origin), obtaining $x = \frac{24}{4} = 6$.
+M1: $y = \frac{6}{\sqrt{3}} = 2\sqrt{3}$.
+A1: $z = 6 + 2i\sqrt{3}$ (or $6 + i\sqrt{12}$).
+}
+\inv{
+Use polar coordinates to find this intersection in one line: The circle is $r = 8\cos\theta$. At $\theta = \frac{\pi}{6}$, $r = 8\cos\frac{\pi}{6} = 8 \times \frac{\sqrt{3}}{2} = 4\sqrt{3}$. Convert $4\sqrt{3}\text{ cis}\left(\frac{\pi}{6}\right)$ back to Cartesian coordinates and confirm it gives $6 + 2i\sqrt{3}$!
+}
 
-%── Q10 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Geometric verification of angle properties or cyclic configurations in $\mathbb{C}$}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q10: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+%── Q10 [PRF] ────────────────────────────────────────────────────────────
+\item \textbf{[PRF]} Geometric transformation and Thales' semicircle locus.
+\ans{
+(a) Proof that $x = 0$ (imaginary axis) \qquad (b) Semicircle centre $(0, 0)$, radius $2$, upper half ($y > 0$), endpoints $(-2,0)$ and $(2,0)$ excluded
+}
+\method{
+\textbf{(a)} M1: $|w| = 1 \implies \frac{|z - 2|}{|z + 2|} = 1 \implies |z - 2| = |z + 2|$.
+M1: Replaces $z = x + iy$: $(x - 2)^2 + y^2 = (x + 2)^2 + y^2$.
+A1: $x^2 - 4x + 4 + y^2 = x^2 + 4x + 4 + y^2 \implies -4x = 4x \implies 8x = 0 \implies x = 0$ (the imaginary axis).\\
+\textbf{(b)(i)} B1: Recognizes that $\arg\left(\frac{z - 2}{z + 2}\right) = \arg(z - 2) - \arg(z + 2) = \frac{\pi}{2}$.
+B1: This represents the directed angle from vector $(z + 2)$ to $(z - 2)$ being $90^\circ$ ($\frac{\pi}{2}$ radians).\\
+\textbf{(b)(ii)} M1: By Thales' theorem, any point subtending a right angle across diameter $[-2, 2]$ lies on a circle with centre $(0,0)$ and diameter $4$ (radius $2$).
+A1: Since the directed angle is $+\frac{\pi}{2}$, $z$ must lie in the upper half-plane ($y > 0$).
+A1: Centre $(0,0)$, radius $2$, upper semicircle ($x^2 + y^2 = 4, y > 0$); points $(-2,0)$ and $(2,0)$ excluded.
+}
+\inv{
+What happens if the condition is changed to $\arg\left(\frac{z - 2}{z + 2}\right) = -\frac{\pi}{2}$? How does the sign of the angle determine whether the locus is the upper or lower semicircle?
+}
 
 \end{enumerate}
+
+\vspace{14pt}
+\begin{center}
+  {\footnotesize\color{medgray}--- \textit{End of Solutions \& Investigations for Chapter 2} ---}
+\end{center}
 
 \end{document}
