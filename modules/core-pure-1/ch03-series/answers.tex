@@ -9,74 +9,267 @@
 
 \section*{Section A \quad Procedural \& Direct Foundations}
 \begin{enumerate}
+
 %── Q1 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Sum of the first $n$ positive integers with shifted lower limits}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q1: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\item \textbf{[DIR]} Standard linear summation and shifted index limits.
+\ans{
+(a) $n(2n - 1)$ \qquad (b) $1617$
+}
+\method{
+\textbf{(a)} M1: Applies summation formulas:
+\[
+\sum_{r=1}^n (4r - 3) = 4\left(\frac{n(n+1)}{2}\right) - 3n = 2n(n+1) - 3n
+\]
+A1: $2n^2 + 2n - 3n = 2n^2 - n = n(2n - 1)$.\\
+\textbf{(b)} M1: Splits limits: $\sum_{r=10}^{30} = \sum_{r=1}^{30} - \sum_{r=1}^9$.
+M1: Evaluates at $n = 30$: $30(2(30) - 1) = 30(59) = 1770$.
+Evaluates at $n = 9$: $9(2(9) - 1) = 9(17) = 153$.
+A1: $1770 - 153 = 1617$.
+}
+\inv{
+Notice that $4r - 3$ is an arithmetic progression with first term $a = 1$ and common difference $d = 4$. Use the classical arithmetic series formula $S_N = \frac{N}{2}(u_1 + u_N)$ with $N = 21$ terms ($u_{10} = 37, u_{30} = 117$) to verify that $\frac{21}{2}(37 + 117) = \frac{21}{2}(154) = 21 \times 77 = 1617$.
+}
 
 %── Q2 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Sum of squares formula application and algebraic factorization}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q2: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\item \textbf{[DIR]} Sum of squares formula and algebraic factorisation.
+\ans{
+(a) $\dfrac{1}{2}n(n+1)(2n - 1)$ \qquad (b) $8190$
+}
+\method{
+\textbf{(a)} M1: Applies standard formulas for $\sum r^2$ and $\sum r$:
+\[
+\sum_{r=1}^n (3r^2 - 2r) = 3\left(\frac{n(n+1)(2n+1)}{6}\right) - 2\left(\frac{n(n+1)}{2}\right)
+\]
+M1: Extracts common factor $\frac{1}{2}n(n+1)$:
+\[
+= \frac{1}{2}n(n+1)[(2n + 1) - 2]
+\]
+A1: Fully factors to $\frac{1}{2}n(n+1)(2n - 1)$.\\
+\textbf{(b)} M1: Substitutes $n = 20$ into the factored formula:
+\[
+\frac{1}{2}(20)(21)(2(20) - 1) = 10 \times 21 \times 39
+\]
+A1: $8190$.
+}
+\inv{
+What happens if you evaluate $\sum_{r=1}^n (3r^2 - 3r + 1)$? Recall the algebraic identity $(r)^3 - (r-1)^3 = 3r^2 - 3r + 1$. Notice that summing this gives a telescoping cancellation yielding exactly $n^3$. This provides a geometric proof of the formula for $\sum r^2$!
+}
 
 %── Q3 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Sum of cubes formula and proving identities of the form $S_n = [f(n)]^2$}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q3: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\item \textbf{[DIR]} Sum of cubes and divisibility deduction.
+\ans{
+(a) $\dfrac{1}{4}n(n+1)(n^2 + n + 2)$ \qquad (b) Divisibility proof for even $n$
+}
+\method{
+\textbf{(a)} M1: States $\sum r^3 = \frac{n^2(n+1)^2}{4}$ and $\sum r = \frac{n(n+1)}{2} = \frac{2n(n+1)}{4}$.
+M1: Factors out $\frac{1}{4}n(n+1)$:
+\[
+\frac{1}{4}n(n+1)[n(n+1) + 2] = \frac{1}{4}n(n+1)(n^2 + n + 2)
+\]
+A1: Fully correct expression.\\
+\textbf{(b)} M1: Let $n = 2k$ for integer $k \ge 1$.
+Then $n = 2k$ and $n^2 + n + 2 = 4k^2 + 2k + 2 = 2(2k^2 + k + 1)$.
+A1: Product $= \frac{1}{4}(2k)(2k+1)[2(2k^2 + k + 1)] = k(2k+1)(2k^2 + k + 1)$, which is an integer multiple of $k$, establishing divisibility by $4$.
+}
+\inv{
+Recall that $\sum_{r=1}^n r^3 = \left(\sum_{r=1}^n r\right)^2$. Is there any other power $p$ for which $\sum r^p = \left(\sum r\right)^k$ holds for all $n$? (Nicomachus's Theorem confirms $p=3$ is unique!).
+}
 
 \end{enumerate}
 
 \section*{Section B \quad Reverse Parameters \& Analysis}
 \begin{enumerate}[resume]
+
 %── Q4 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Evaluating general cubic polynomials in $r$: sum of $(ar^3 + br^2 + cr + d)$}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q4: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\item \textbf{[REV]} Quadratic series expansion and solving integer polynomial equations.
+\ans{
+(a) $n(n+2)(2n+1)$ \qquad (b) $n = 3$
+}
+\method{
+\textbf{(a)} M1: Expands using standard summations:
+\[
+6\left(\frac{n(n+1)(2n+1)}{6}\right) + 4\left(\frac{n(n+1)}{2}\right) - n
+\]
+M1: $n(n+1)(2n+1) + 2n(n+1) - n = n[(n+1)(2n+1) + 2(n+1) - 1]$.
+M1: Expands inner bracket: $2n^2 + 3n + 1 + 2n + 2 - 1 = 2n^2 + 5n + 2$.
+A1: Factors $2n^2 + 5n + 2 = (n+2)(2n+1)$, obtaining $n(n+2)(2n+1)$.\\
+\textbf{(b)} M1: Sets $n(n+2)(2n+1) = 105$.
+Tests small positive integers: for $n = 3$, $3(3+2)(2(3)+1) = 3(5)(7) = 105$.
+A1: $n = 3$ (and notes that $2n^3 + 5n^2 + 2n - 105 = (n-3)(2n^2 + 11n + 35) = 0$ has no other positive real roots since $\Delta = 11^2 - 4(2)(35) < 0$).
+}
+\inv{
+Why does $2n^3 + 5n^2 + 2n$ strictly increase for $n \ge 1$? What does the derivative $\frac{d}{dn}(2n^3 + 5n^2 + 2n) = 6n^2 + 10n + 2 > 0$ imply about the uniqueness of integer solutions to such series equations?
+}
 
 %── Q5 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Parameter determination: finding constant $k$ given total sum $S_n$}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q5: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\item \textbf{[REV]} Reverse parameter determination from factored result.
+\ans{
+$k = 4$
+}
+\method{
+M1: Expresses LHS in terms of $n$:
+\[
+\sum_{r=1}^n r^2 + k\sum_{r=1}^n r = \frac{n(n+1)(2n+1)}{6} + \frac{kn(n+1)}{2}
+\]
+M1: Creates common denominator of 6:
+\[
+= \frac{n(n+1)}{6}[(2n + 1) + 3k] = \frac{1}{6}n(n+1)(2n + 3k + 1)
+\]
+A1: Equates coefficient structure with the given RHS $\frac{1}{6}n(n+1)(2n + 13)$:
+\[
+2n + 3k + 1 = 2n + 13
+\]
+M1: $3k + 1 = 13 \implies 3k = 12$.
+A1: $k = 4$.
+}
+\inv{
+Could you solve for $k$ simply by setting $n = 1$? Check: For $n = 1$, LHS is $1^2 + k(1) = 1 + k$. RHS is $\frac{1}{6}(1)(2)(2(1) + 13) = \frac{1}{6}(2)(15) = 5$. Thus $1 + k = 5 \implies k = 4$ in 5 seconds! Why should you always verify with $n=2$ when using this shortcut?
+}
 
 %── Q6 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Method of differences: standard partial fraction telescoping sum $\frac{1}{r(r+1)}$}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q6: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\item \textbf{[PRF]} Telescoping series via partial fractions and convergence.
+\ans{
+(a) $\dfrac{1}{r} - \dfrac{1}{r+1}$ \qquad (b) Proof showing telescoping cancellation \qquad (c) $S_\infty = 1$
+}
+\method{
+\textbf{(a)} B1: $\frac{1}{r(r+1)} = \frac{1}{r} - \frac{1}{r+1}$.\\
+\textbf{(b)} M1: Writes out initial and final terms:
+\begin{align*}
+r=1: & \quad 1 - \frac{1}{2} \\
+r=2: & \quad \frac{1}{2} - \frac{1}{3} \\
+& \quad \vdots \\
+r=n-1: & \quad \frac{1}{n-1} - \frac{1}{n} \\
+r=n: & \quad \frac{1}{n} - \frac{1}{n+1}
+\end{align*}
+M1: Shows intermediate cancellations across diagonal pairs.
+A1: Deduces remaining terms: $1 - \frac{1}{n+1} = \frac{n+1 - 1}{n+1} = \frac{n}{n+1}$.\\
+\textbf{(c)} B1: $\lim_{n \to \infty} \left(1 - \frac{1}{n+1}\right) = 1 - 0 = 1$.
+}
+\inv{
+What is the sum from $r = n+1$ to $2n$? Evaluate $\sum_{r=n+1}^{2n} \frac{1}{r(r+1)} = \frac{2n}{2n+1} - \frac{n}{n+1} = \frac{n}{(2n+1)(n+1)}$. As $n \to \infty$, this tail sum vanishes to $0$, confirming Cauchy convergence.
+}
 
 \end{enumerate}
 
 \section*{Section C \quad Proof, Geometry \& Multi-step}
 \begin{enumerate}[resume]
+
 %── Q7 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Method of differences: stride-2 telescoping cancellation $\frac{1}{r(r+2)}$}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q7: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+\item \textbf{[PRF]} Stride-2 telescoping cancellation and sum to infinity.
+\ans{
+(a) Verification of partial fractions \quad (b) $\dfrac{3}{2} - \dfrac{2n+3}{(n+1)(n+2)}$ \quad (c) $S_\infty = \dfrac{3}{2}$
+}
+\method{
+\textbf{(a)} B1: $\frac{1}{r} - \frac{1}{r+2} = \frac{(r+2) - r}{r(r+2)} = \frac{2}{r(r+2)}$.\\
+\textbf{(b)} M1: Writes out terms systematically showing stride-2 cancellation:
+\begin{align*}
+r=1: & \quad 1 - \frac{1}{3} \\
+r=2: & \quad \frac{1}{2} - \frac{1}{4} \\
+r=3: & \quad \frac{1}{3} - \frac{1}{5} \\
+& \quad \vdots \\
+r=n-1: & \quad \frac{1}{n-1} - \frac{1}{n+1} \\
+r=n: & \quad \frac{1}{n} - \frac{1}{n+2}
+\end{align*}
+M1: Identifies that two terms survive at the start ($1 + \frac{1}{2} = \frac{3}{2}$) and two at the end ($-\frac{1}{n+1} - \frac{1}{n+2}$).
+M1: Combines the negative terms:
+\[
+-\left(\frac{1}{n+1} + \frac{1}{n+2}\right) = -\frac{(n+2) + (n+1)}{(n+1)(n+2)} = -\frac{2n+3}{(n+1)(n+2)}
+\]
+A1: $\frac{3}{2} - \frac{2n+3}{(n+1)(n+2)}$.\\
+\textbf{(c)} B1: As $n \to \infty$, $\frac{2n+3}{(n+1)(n+2)} \to 0$, so $\sum_{r=1}^\infty \frac{2}{r(r+2)} = \frac{3}{2}$.
+}
+\inv{
+If the partial fraction has stride $k$, i.e. $\frac{1}{r} - \frac{1}{r+k}$, how many leading terms survive at the beginning of the summation? Prove that the sum to infinity is always the $k$-th harmonic number $H_k = 1 + \frac{1}{2} + \frac{1}{3} + \dots + \frac{1}{k}$.
+}
 
 %── Q8 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Method of differences with factorials or trigonometric identities}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q8: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+\item \textbf{[PRF]} Factorial telescoping series and exponential growth bounds.
+\ans{
+(a) Algebraic identity proof \qquad (b) $(n+1)! - 1$ \qquad (c) $n = 8$
+}
+\method{
+\textbf{(a)} B1: $(r+1)! - r! = (r+1)r! - r! = r!(r+1 - 1) = r \cdot r!$.\\
+\textbf{(b)} M1: Applies telescoping to $\sum_{r=1}^n [(r+1)! - r!]$:
+\begin{align*}
+r=1: & \quad 2! - 1! \\
+r=2: & \quad 3! - 2! \\
+& \quad \vdots \\
+r=n: & \quad (n+1)! - n!
+\end{align*}
+M1: All intermediate factorial terms cancel in diagonal pairs.
+A1: Surviving terms are $(n+1)! - 1! = (n+1)! - 1$.\\
+\textbf{(c)} M1: Sets $(n+1)! - 1 > 100\,000 \implies (n+1)! > 100\,001$.
+Evaluates factorials: $8! = 40\,320 < 100\,001$, while $9! = 362\,880 > 100\,001$.
+A1: $n + 1 = 9 \implies n = 8$.
+}
+\inv{
+Can you evaluate $\sum_{r=1}^n \frac{r}{(r+1)!}$? Notice that $\frac{r}{(r+1)!} = \frac{(r+1) - 1}{(r+1)!} = \frac{1}{r!} - \frac{1}{(r+1)!}$. Show that $\sum_{r=1}^\infty \frac{r}{(r+1)!} = 1$.
+}
 
-%── Q9 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Convergence and evaluation of infinite telescoping series}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q9: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+%── Q9 [SYN] ─────────────────────────────────────────────────────────────
+\item \textbf{[SYN]} Trigonometric telescoping series with clean multiples of $\pi$.
+\ans{
+(a) Trigonometric identity verification \qquad (b) $\sin\left(\dfrac{(2n+1)\pi}{6}\right) - \dfrac{1}{2}$ \qquad (c) $0$
+}
+\method{
+\textbf{(a)} M1: Using $2\cos A \sin B = \sin(A+B) - \sin(A-B)$ with $A = \frac{r\pi}{3}$ and $B = \frac{\pi}{6}$:
+\[
+2\cos\left(\frac{r\pi}{3}\right)\sin\left(\frac{\pi}{6}\right) = \sin\left(\frac{r\pi}{3} + \frac{\pi}{6}\right) - \sin\left(\frac{r\pi}{3} - \frac{\pi}{6}\right)
+\]
+A1: Since $\sin\left(\frac{\pi}{6}\right) = \frac{1}{2}$, the factor $2\sin(\frac{\pi}{6}) = 1$, giving directly:
+\[
+\cos\left(\frac{r\pi}{3}\right) = \sin\left(\frac{(2r+1)\pi}{6}\right) - \sin\left(\frac{(2r-1)\pi}{6}\right)
+\]
+\textbf{(b)} M1: Writes out telescoping sum:
+\begin{align*}
+r=1: & \quad \sin\left(\frac{3\pi}{6}\right) - \sin\left(\frac{\pi}{6}\right) \\
+r=2: & \quad \sin\left(\frac{5\pi}{6}\right) - \sin\left(\frac{3\pi}{6}\right) \\
+& \quad \vdots \\
+r=n: & \quad \sin\left(\frac{(2n+1)\pi}{6}\right) - \sin\left(\frac{(2n-1)\pi}{6}\right)
+\end{align*}
+M1: All intermediate terms cancel.
+A1: $\sin\left(\frac{(2n+1)\pi}{6}\right) - \sin\left(\frac{\pi}{6}\right) = \sin\left(\frac{(2n+1)\pi}{6}\right) - \frac{1}{2}$.\\
+\textbf{(c)} M1: For $n = 6$: $\sin\left(\frac{13\pi}{6}\right) - \frac{1}{2} = \sin\left(2\pi + \frac{\pi}{6}\right) - \frac{1}{2}$.
+A1: $\sin\left(\frac{\pi}{6}\right) - \frac{1}{2} = \frac{1}{2} - \frac{1}{2} = 0$.
+}
+\inv{
+Why is the sum of cosines over a full period $6$ equal to zero? Notice that the six points $\frac{r\pi}{3}$ ($60^\circ, 120^\circ, 180^\circ, 240^\circ, 300^\circ, 360^\circ$) form a regular hexagon on the unit circle in the Argand plane! The vector sum of roots of unity always vanishes symmetrically.
+}
 
-%── Q10 [SYN] ─────────────────────────────────────────────────────────────
-\item \textbf{[SYN]} \textit{Synoptic series applications linking summation to induction or polynomials}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q10: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+%── Q10 [SYN] ────────────────────────────────────────────────────────────
+\item \textbf{[SYN]} Higher polynomial series and infinite reciprocal summation.
+\ans{
+(a) Algebraic expansion \quad (b) $S_n = \dfrac{1}{4}n(n+1)(n+2)(n+3)$\\[2pt]
+(c) $\displaystyle\sum_{r=1}^\infty \frac{1}{r(r+1)(r+2)} = \frac{1}{4}$
+}
+\method{
+\textbf{(a)} B1: $r(r+1)(r+2) = r(r^2 + 3r + 2) = r^3 + 3r^2 + 2r$.\\
+\textbf{(b)} M1: Applies summation formulas:
+\[
+S_n = \frac{n^2(n+1)^2}{4} + 3\left(\frac{n(n+1)(2n+1)}{6}\right) + 2\left(\frac{n(n+1)}{2}\right)
+\]
+M1: Factors out $\frac{1}{4}n(n+1)$:
+\[
+= \frac{1}{4}n(n+1)[n(n+1) + 2(2n+1) + 4] = \frac{1}{4}n(n+1)[n^2 + n + 4n + 2 + 4]
+\]
+A1: Inner bracket is $n^2 + 5n + 6 = (n+2)(n+3)$.
+A1: $S_n = \frac{1}{4}n(n+1)(n+2)(n+3)$.\\
+\textbf{(c)} M1: Verifies telescoping identity:
+\[
+\frac{1}{2r(r+1)} - \frac{1}{2(r+1)(r+2)} = \frac{(r+2) - r}{2r(r+1)(r+2)} = \frac{2}{2r(r+1)(r+2)} = \frac{1}{r(r+1)(r+2)}
+\]
+M1: Evaluates telescoping sum: first term is $\frac{1}{2(1)(2)} = \frac{1}{4}$, while final terms vanish as $n \to \infty$.
+A1: $\frac{1}{4}$.
+}
+\inv{
+Notice the beautiful pattern: $\sum_{r=1}^n r = \frac{n(n+1)}{2}$, $\sum_{r=1}^n r(r+1) = \frac{n(n+1)(n+2)}{3}$, and $\sum_{r=1}^n r(r+1)(r+2) = \frac{n(n+1)(n+2)(n+3)}{4}$. What is the general formula for $\sum_{r=1}^n r(r+1)\cdots(r+k-1)$? (This is the discrete calculus analogue of $\int x^k dx = \frac{x^{k+1}}{k+1}$!).
+}
 
 \end{enumerate}
+
+\vspace{14pt}
+\begin{center}
+  {\footnotesize\color{medgray}--- \textit{End of Solutions \& Investigations for Chapter 3} ---}
+\end{center}
 
 \end{document}

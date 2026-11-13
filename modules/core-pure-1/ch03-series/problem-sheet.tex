@@ -5,95 +5,147 @@
 \begin{document}
 \thispagestyle{plain}
 
-\CPTitleBlock{Series \& Summation}{Problem Sheet \#3 \enspace$\cdot$\enspace Standard Sums, Index Shifts, Method of Differences \& Telescoping}
+\CPTitleBlock{Series \& Summation}{Problem Sheet 3 \enspace$\cdot$\enspace Standard Sums, Index Shifts, Method of Differences \& Telescoping}
 
 \section*{Section A \quad Procedural \& Direct Foundations \hfill{\normalfont\footnotesize(Questions 1--3)}}
 \begin{enumerate}
+
 %── Q1 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Sum of the first $n$ positive integers with shifted lower limits}
-\[
-\text{[Draft Question 1: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[4--5 marks]}}
+\item \textbf{[DIR]} 
+\begin{enumerate}[label=(\alph*)]
+  \item Using standard summation formulae, show that for all positive integers $n$,
+  \[
+  \sum_{r=1}^n (4r - 3) = n(2n - 1)
+  \]
+  \hfill{\textbf{[2 marks]}}
+  \item Hence evaluate the sum $\displaystyle\sum_{r=10}^{30} (4r - 3)$. \hfill{\textbf{[2 marks]}}
+\end{enumerate}
 
 %── Q2 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Sum of squares formula application and algebraic factorization}
-\[
-\text{[Draft Question 2: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[4--5 marks]}}
+\item \textbf{[DIR]} 
+\begin{enumerate}[label=(\alph*)]
+  \item Show that for any integer $n \ge 1$,
+  \[
+  \sum_{r=1}^n (3r^2 - 2r) = \frac{1}{2}n(n+1)(2n - 1)
+  \]
+  showing all algebraic factorisation steps clearly. \hfill{\textbf{[3 marks]}}
+  \item Hence calculate the exact value of $\displaystyle\sum_{r=1}^{20} (3r^2 - 2r)$. \hfill{\textbf{[2 marks]}}
+\end{enumerate}
 
 %── Q3 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Sum of cubes formula and proving identities of the form $S_n = [f(n)]^2$}
-\[
-\text{[Draft Question 3: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[4--5 marks]}}
+\item \textbf{[DIR]} 
+\begin{enumerate}[label=(\alph*)]
+  \item Using the formula for $\sum r^3$ and $\sum r$, prove that
+  \[
+  \sum_{r=1}^n (r^3 + r) = \frac{1}{4}n(n+1)(n^2 + n + 2)
+  \]
+  \hfill{\textbf{[3 marks]}}
+  \item Deduce that $\sum_{r=1}^n (r^3 + r)$ is divisible by 4 for every even integer $n \ge 2$. \hfill{\textbf{[2 marks]}}
+\end{enumerate}
 
 \end{enumerate}
 
-\section*{Section B \quad Reverse Parameters \& Analysis \hfill{\normalfont\small(Questions 4--6)}}
+\section*{Section B \quad Reverse Parameters \& Analysis \hfill{\normalfont\footnotesize(Questions 4--6)}}
 \begin{enumerate}[resume]
+
 %── Q4 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Evaluating general cubic polynomials in $r$: sum of $(ar^3 + br^2 + cr + d)$}
-\[
-\text{[Draft Question 4: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[5--6 marks]}}
+\item \textbf{[REV]} 
+\begin{enumerate}[label=(\alph*)]
+  \item Show that
+  \[
+  \sum_{r=1}^n (6r^2 + 4r - 1) = n(n+2)(2n+1)
+  \]
+  \hfill{\textbf{[4 marks]}}
+  \item Hence solve the equation $\displaystyle\sum_{r=1}^n (6r^2 + 4r - 1) = 105$ for the positive integer $n$. \hfill{\textbf{[2 marks]}}
+\end{enumerate}
 
 %── Q5 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Parameter determination: finding constant $k$ given total sum $S_n$}
+\item \textbf{[REV]} Given that $k$ is a real constant such that
 \[
-\text{[Draft Question 5: Complete examination problem text to be populated]}
+\sum_{r=1}^n (r^2 + kr) = \frac{1}{6}n(n+1)(2n + 13)
 \]
-\hfill{\small\textbf{[5--6 marks]}}
+find the exact integer value of $k$. Show your full algebraic method. \hfill{\textbf{[5 marks]}}
 
 %── Q6 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Method of differences: standard partial fraction telescoping sum $\frac{1}{r(r+1)}$}
-\[
-\text{[Draft Question 6: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[5--6 marks]}}
+\item \textbf{[PRF]} 
+\begin{enumerate}[label=(\alph*)]
+  \item Express $\dfrac{1}{r(r+1)}$ in partial fractions. \hfill{\textbf{[1 mark]}}
+  \item Use the method of differences to show that
+  \[
+  \sum_{r=1}^n \frac{1}{r(r+1)} = \frac{n}{n+1}
+  \]
+  You must write out the first two and final two rows of your summation. \hfill{\textbf{[3 marks]}}
+  \item State the sum to infinity $\displaystyle\sum_{r=1}^\infty \frac{1}{r(r+1)}$. \hfill{\textbf{[1 mark]}}
+\end{enumerate}
 
 \end{enumerate}
 
-\section*{Section C \quad Proof, Geometry \& Multi-step \hfill{\normalfont\small(Questions 7--10)}}
+\section*{Section C \quad Proof, Geometry \& Multi-step \hfill{\normalfont\footnotesize(Questions 7--10)}}
 \begin{enumerate}[resume]
+
 %── Q7 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Method of differences: stride-2 telescoping cancellation $\frac{1}{r(r+2)}$}
-\[
-\text{[Draft Question 7: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[6--8 marks]}}
+\item \textbf{[PRF]} 
+\begin{enumerate}[label=(\alph*)]
+  \item Show that $\dfrac{2}{r(r+2)} = \dfrac{1}{r} - \dfrac{1}{r+2}$. \hfill{\textbf{[1 mark]}}
+  \item Use the method of differences to prove that for all $n \ge 2$,
+  \[
+  \sum_{r=1}^n \frac{2}{r(r+2)} = \frac{3}{2} - \frac{2n+3}{(n+1)(n+2)}
+  \]
+  \hfill{\textbf{[4 marks]}}
+  \item Deduce the exact value of $\displaystyle\sum_{r=1}^\infty \frac{2}{r(r+2)}$. \hfill{\textbf{[1 mark]}}
+\end{enumerate}
 
 %── Q8 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Method of differences with factorials or trigonometric identities}
-\[
-\text{[Draft Question 8: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[6--8 marks]}}
+\item \textbf{[PRF]} 
+\begin{enumerate}[label=(\alph*)]
+  \item Show that $(r+1)! - r! = r \cdot r!$. \hfill{\textbf{[1 mark]}}
+  \item Hence, using the method of differences, prove that
+  \[
+  \sum_{r=1}^n (r \cdot r!) = (n+1)! - 1
+  \]
+  \hfill{\textbf{[3 marks]}}
+  \item Find the smallest integer $n$ for which $\displaystyle\sum_{r=1}^n (r \cdot r!) > 100\,000$. \hfill{\textbf{[2 marks]}}
+\end{enumerate}
 
-%── Q9 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Convergence and evaluation of infinite telescoping series}
-\[
-\text{[Draft Question 9: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[6--8 marks]}}
+%── Q9 [SYN] ─────────────────────────────────────────────────────────────
+\item \textbf{[SYN]} 
+\begin{enumerate}[label=(\alph*)]
+  \item Using the identity $2\cos A \sin B = \sin(A+B) - \sin(A-B)$ with $B = \dfrac{\pi}{6}$, show that
+  \[
+  \cos\left(\frac{r\pi}{3}\right) = \sin\left(\frac{(2r+1)\pi}{6}\right) - \sin\left(\frac{(2r-1)\pi}{6}\right)
+  \]
+  \hfill{\textbf{[2 marks]}}
+  \item Use the method of differences to show that
+  \[
+  \sum_{r=1}^n \cos\left(\frac{r\pi}{3}\right) = \sin\left(\frac{(2n+1)\pi}{6}\right) - \frac{1}{2}
+  \]
+  \hfill{\textbf{[3 marks]}}
+  \item Hence evaluate the exact sum $\displaystyle\sum_{r=1}^{6} \cos\left(\frac{r\pi}{3}\right)$. \hfill{\textbf{[2 marks]}}
+\end{enumerate}
 
-%── Q10 [SYN] ─────────────────────────────────────────────────────────────
-\item \textbf{[SYN]} \textit{Synoptic series applications linking summation to induction or polynomials}
-\[
-\text{[Draft Question 10: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[6--8 marks]}}
+%── Q10 [SYN] ────────────────────────────────────────────────────────────
+\item \textbf{[SYN]} Let $S_n = \displaystyle\sum_{r=1}^n r(r+1)(r+2)$.
+\begin{enumerate}[label=(\alph*)]
+  \item Show that $r(r+1)(r+2) = r^3 + 3r^2 + 2r$. \hfill{\textbf{[1 mark]}}
+  \item Use standard summation formulas to prove that
+  \[
+  S_n = \frac{1}{4}n(n+1)(n+2)(n+3)
+  \]
+  \hfill{\textbf{[4 marks]}}
+  \item By showing that $\dfrac{1}{r(r+1)(r+2)} = \dfrac{1}{2r(r+1)} - \dfrac{1}{2(r+1)(r+2)}$, find the exact value of
+  \[
+  \sum_{r=1}^\infty \frac{1}{r(r+1)(r+2)}
+  \]
+  \hfill{\textbf{[3 marks]}}
+\end{enumerate}
 
 \end{enumerate}
 
 \vspace{14pt}
 \begin{center}
   {\color{accentline}\rule{0.4\textwidth}{0.4pt}}\\[5pt]
-  {\footnotesize\itshape\color{medgray} ``Mathematics is not about numbers, equations, computations, or algorithms: it is about understanding.''}\\[2pt]
-  {\scriptsize\scshape\color{medgray} William Paul Thurston}\\[5pt]
+  {\footnotesize\itshape\color{medgray} ``In mathematics, the art of asking questions is more valuable than solving problems.''}\\[2pt]
+  {\scriptsize\scshape\color{medgray} Georg Cantor}\\[5pt]
   {\color{accentline}\rule{0.4\textwidth}{0.4pt}}
 \end{center}
 
