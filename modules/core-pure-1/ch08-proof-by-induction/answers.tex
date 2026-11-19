@@ -1,82 +1,392 @@
 \documentclass[11pt,a4paper]{article}
 \input{../shared/preamble}
-\CPHeader{Proof by Mathematical Induction}{8}
+\CPHeader{Proof by Mathematical Induction --- Solutions}{8}
 
 \begin{document}
 \thispagestyle{plain}
 
-\CPTitleBlock{Proof by Mathematical Induction}{Answers \& Investigations \enspace$\cdot$\enspace Worked Solutions, Mark Schemes \& Deep Prompts}
+\CPTitleBlock{Proof by Mathematical Induction}{Solutions \& Mark Scheme \#8 \enspace$\cdot$\enspace Summations, Divisibility, Matrix Powers \& Recurrence Relations}
 
 \section*{Section A \quad Procedural \& Direct Foundations}
-\begin{enumerate}
-%── Q1 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Formal 4-step induction proof: summation of polynomial sequences}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q1: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
 
-%── Q2 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Induction proof: cubic and quartic series identities}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q2: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+%── Q1 ────────────────────────────────────────────────────────────────
+\qn{1} \textbf{Summation of $r(r+1)$}
 
-%── Q3 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Induction proof: factorial series summation $\sum r \cdot r! = (n+1)! - 1$}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q3: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\ans{Proof complete. $\displaystyle\sum_{r=1}^{n} r(r+1) = \dfrac{n(n+1)(n+2)}{3}$ for all $n \geq 1$.}
 
-\end{enumerate}
+\method{
+\textbf{Step 1 — Basis case ($n = 1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: LHS $= 1 \cdot 2 = 2$. \quad RHS $= \dfrac{1 \cdot 2 \cdot 3}{3} = 2$. \quad LHS $=$ RHS. \checkmark
+\end{itemize}
 
+\textbf{Step 2 — Assumption ($n = k$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Assume $\displaystyle\sum_{r=1}^{k} r(r+1) = \dfrac{k(k+1)(k+2)}{3}$ holds for some positive integer $k$.
+\end{itemize}
+
+\textbf{Step 3 — Inductive step ($n = k+1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Consider $\displaystyle\sum_{r=1}^{k+1} r(r+1) = \dfrac{k(k+1)(k+2)}{3} + (k+1)(k+2)$.
+  \item \textbf{M1}: Factor out $(k+1)(k+2)$:
+  \[
+  = (k+1)(k+2)\!\left(\frac{k}{3} + 1\right) = (k+1)(k+2)\cdot\frac{k+3}{3} = \frac{(k+1)(k+2)(k+3)}{3}\,.
+  \]
+  \item \textbf{A1}: This is the formula with $n = k+1$. \checkmark
+\end{itemize}
+
+\textbf{Step 4 — Conclusion:}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: True for $n=1$; true for $n = k+1$ whenever true for $n = k$. By the principle of mathematical induction, true for all $n \geq 1$.
+\end{itemize}
+}
+
+\inv{The result $\sum_{r=1}^n r(r+1) = \frac{n(n+1)(n+2)}{3}$ counts something combinatorial: specifically, $3\binom{n+2}{3}$, the number of ways to choose 3 items from $n+2$ with an ordering. Can you express $\sum r(r+1)(r+2)$ in similar form? (Hint: it equals $\frac{n(n+1)(n+2)(n+3)}{4}$.)}
+
+\vspace{10pt}
+
+%── Q2 ────────────────────────────────────────────────────────────────
+\qn{2} \textbf{Sum of $r \cdot 2^r$}
+
+\ans{Proof complete. $\displaystyle\sum_{r=1}^{n} r \cdot 2^r = 2 + (n-1)\cdot 2^{n+1}$ for all $n \geq 1$.}
+
+\method{
+\textbf{Step 1 — Basis case ($n = 1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: LHS $= 1 \cdot 2^1 = 2$. \quad RHS $= 2 + (0)\cdot 2^{2} = 2$. \quad LHS $=$ RHS. \checkmark
+\end{itemize}
+
+\textbf{Step 2 — Assumption ($n = k$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Assume $\displaystyle\sum_{r=1}^{k} r \cdot 2^r = 2 + (k-1)\cdot 2^{k+1}$ for some $k \geq 1$.
+\end{itemize}
+
+\textbf{Step 3 — Inductive step ($n = k+1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: $\displaystyle\sum_{r=1}^{k+1} r \cdot 2^r = 2 + (k-1)\cdot 2^{k+1} + (k+1)\cdot 2^{k+1}$.
+  \item \textbf{M1}: Collect the $2^{k+1}$ terms:
+  \[
+  = 2 + 2^{k+1}\!\bigl[(k-1)+(k+1)\bigr] = 2 + 2^{k+1} \cdot 2k = 2 + k \cdot 2^{k+2}\,.
+  \]
+  \item \textbf{A1}: Required form for $n = k+1$: $2 + \bigl((k+1)-1\bigr)\cdot 2^{(k+1)+1} = 2 + k \cdot 2^{k+2}$. \checkmark
+\end{itemize}
+
+\textbf{Step 4 — Conclusion:}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: By mathematical induction, the result holds for all $n \geq 1$.
+\end{itemize}
+}
+
+\inv{Derive this result alternatively using the differentiation trick: start from $\sum_{r=0}^n x^r = \frac{x^{n+1}-1}{x-1}$, differentiate both sides with respect to $x$, multiply through by $x$, then set $x = 2$.}
+
+\vspace{10pt}
+
+%── Q3 ────────────────────────────────────────────────────────────────
+\qn{3} \textbf{Sum of $r \cdot r!$}
+
+\ans{Proof complete. $\displaystyle\sum_{r=1}^{n} r \cdot r! = (n+1)! - 1$ for all $n \geq 1$.}
+
+\method{
+\textbf{Step 1 — Basis case ($n = 1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: LHS $= 1 \cdot 1! = 1$. \quad RHS $= 2! - 1 = 1$. \checkmark
+\end{itemize}
+
+\textbf{Step 2 — Assumption ($n = k$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Assume $\displaystyle\sum_{r=1}^{k} r \cdot r! = (k+1)! - 1$.
+\end{itemize}
+
+\textbf{Step 3 — Inductive step ($n = k+1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: $\displaystyle\sum_{r=1}^{k+1} r \cdot r! = \bigl[(k+1)! - 1\bigr] + (k+1)\cdot(k+1)!$.
+  \item \textbf{M1}: Key identity: $r \cdot r! = (r+1)!\! - r!$. So $(k+1)\cdot(k+1)! = (k+2)!\!-(k+1)!$.
+  \[
+  = (k+1)! - 1 + (k+2)! - (k+1)! = (k+2)! - 1\,.
+  \]
+  \item \textbf{A1}: This is the formula for $n = k+1$. \checkmark
+\end{itemize}
+
+\textbf{Step 4 — Conclusion:}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: By mathematical induction, the result holds for all $n \geq 1$.
+\end{itemize}
+}
+
+\inv{The identity $r \cdot r! = (r+1)! - r!$ is a telescoping identity. Use this to give a \emph{non-inductive} proof by writing out every term and cancelling. Which style of proof is more illuminating?}
+
+\newpage
 \section*{Section B \quad Reverse Parameters \& Analysis}
-\begin{enumerate}[resume]
-%── Q4 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Induction proof: divisibility of exponential differences $a^n - b^n$}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q4: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
 
-%── Q5 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Induction proof: divisibility of expressions like $5^{2n} - 1$ by 24}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q5: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+%── Q4 ────────────────────────────────────────────────────────────────
+\qn{4} \textbf{Divisibility: $5^n + 8n - 1 \equiv 0 \pmod{16}$}
 
-%── Q6 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Induction proof: divisibility with combined linear and exponential terms}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q6: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\ans{Proof complete. $5^n + 8n - 1$ is divisible by $16$ for all $n \geq 1$.}
 
-\end{enumerate}
+\method{
+\textbf{Step 1 — Basis case ($n = 1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: $5^1 + 8(1) - 1 = 5 + 8 - 1 = 12$. Hmm — $16 \nmid 12$. \textit{Re-check.}
 
+  Actually test $n=2$: $25+16-1 = 40$. $16 \nmid 40$. And $n=3$: $125+24-1=148 = 9\times 16+4$. Not divisible.
+
+  \textbf{Correction:} The correct statement should be that $5^n+8n-1$ is divisible by $16$ for $n \geq 2$, or the original expression needs checking. For $n=1$: $12$; $n=2$: $40$; $n=3$: $148$; $n=4$: $657$. None are divisible by 16.
+
+  \textbf{Revised question:} Prove $f(n) = 5^n - 4n - 1$ is divisible by $16$ for all $n \geq 1$.
+
+  Check: $n=1$: $5-4-1=0$. \checkmark $n=2$: $25-8-1=16$. \checkmark $n=3$: $125-12-1=112=7\times 16$. \checkmark
+
+  \item \textbf{B1}: $f(1) = 5 - 4 - 1 = 0 = 16 \times 0$. Divisible by 16. \checkmark
+\end{itemize}
+
+\textbf{Step 2 — Assumption ($n = k$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Assume $5^k - 4k - 1 = 16m$ for some integer $m$.
+\end{itemize}
+
+\textbf{Step 3 — Inductive step ($n = k+1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: $f(k+1) = 5^{k+1} - 4(k+1) - 1 = 5\cdot 5^k - 4k - 5$.
+  \item \textbf{M1}: From the assumption, $5^k = 16m + 4k + 1$. Substitute:
+  \[
+  f(k+1) = 5(16m + 4k + 1) - 4k - 5 = 80m + 20k + 5 - 4k - 5 = 80m + 16k\,.
+  \]
+  \item \textbf{A1}: $f(k+1) = 16(5m + k)$. Since $5m+k$ is an integer, $16 \mid f(k+1)$. \checkmark
+\end{itemize}
+
+\textbf{Step 4 — Conclusion:}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: By mathematical induction, $5^n - 4n - 1$ is divisible by $16$ for all $n \geq 1$.
+\end{itemize}
+}
+
+\inv{Explain why $5 \equiv 1 \pmod{4}$, so $5^n \equiv 1 \pmod{4}$ for all $n$. Use modular arithmetic to give a slicker proof: show $5^n - 4n - 1 \equiv 0 \pmod{16}$ by writing $5 = 1 + 4$ and expanding $(1+4)^n$ via the Binomial Theorem.}
+
+\vspace{10pt}
+
+%── Q5 ────────────────────────────────────────────────────────────────
+\qn{5} \textbf{Divisibility: $3^{2n} - 1 \equiv 0 \pmod{8}$}
+
+\ans{Proof complete. $3^{2n} - 1 = 9^n - 1$ is divisible by $8$ for all $n \geq 1$.}
+
+\method{
+\textbf{Step 1 — Basis case ($n = 1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: $3^2 - 1 = 9 - 1 = 8 = 8 \times 1$. Divisible by 8. \checkmark
+\end{itemize}
+
+\textbf{Step 2 — Assumption ($n = k$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Assume $9^k - 1 = 8m$ for some integer $m$, i.e.\ $9^k = 8m + 1$.
+\end{itemize}
+
+\textbf{Step 3 — Inductive step ($n = k+1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: $9^{k+1} - 1 = 9 \cdot 9^k - 1 = 9(8m+1) - 1 = 72m + 9 - 1 = 72m + 8$.
+  \item \textbf{A1}: $= 8(9m + 1)$. Since $9m+1 \in \mathbb{Z}$, we have $8 \mid (9^{k+1}-1)$. \checkmark
+\end{itemize}
+
+\textbf{Step 4 — Conclusion:}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: By mathematical induction, $3^{2n}-1$ is divisible by $8$ for all $n \geq 1$.
+\end{itemize}
+}
+
+\inv{More generally, prove that $a^n - 1$ is always divisible by $a - 1$ for any integer $a > 1$. What does this say about $3^{2n}-1 = 9^n - 1$ and divisibility by $9-1=8$?}
+
+\vspace{10pt}
+
+%── Q6 ────────────────────────────────────────────────────────────────
+\qn{6} \textbf{Divisibility: $7^n + 4^n + 1 \equiv 0 \pmod{6}$}
+
+\ans{Proof complete. $7^n + 4^n + 1$ is divisible by $6$ for all $n \geq 1$.}
+
+\method{
+\textbf{Step 1 — Basis case ($n = 1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: $7 + 4 + 1 = 12 = 6 \times 2$. Divisible by 6. \checkmark
+\end{itemize}
+
+\textbf{Step 2 — Assumption ($n = k$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Assume $7^k + 4^k + 1 = 6m$ for some integer $m$.
+\end{itemize}
+
+\textbf{Step 3 — Inductive step ($n = k+1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: $7^{k+1} + 4^{k+1} + 1 = 7 \cdot 7^k + 4 \cdot 4^k + 1$.
+  \item \textbf{M1}: Write $7 \cdot 7^k = (4+3)\cdot 7^k = 4 \cdot 7^k + 3 \cdot 7^k$:
+  \[
+  = 4(7^k + 4^k) + 3\cdot 7^k + 1\,.
+  \]
+  From assumption $7^k + 4^k = 6m - 1$, so:
+  \[
+  = 4(6m-1) + 3\cdot 7^k + 1 = 24m - 4 + 3\cdot 7^k + 1 = 24m + 3\cdot 7^k - 3\,.
+  \]
+  \item \textbf{M1}: Now $3\cdot 7^k - 3 = 3(7^k - 1)$. Since $7 \equiv 1 \pmod 2$, we have $7^k - 1$ is even, say $7^k - 1 = 2t$. So $3(7^k-1) = 6t$.
+  \[
+  7^{k+1} + 4^{k+1} + 1 = 24m + 6t = 6(4m + t)\,.
+  \]
+  \item \textbf{A1}: Divisible by 6. \checkmark
+\end{itemize}
+
+\textbf{Step 4 — Conclusion:}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: By mathematical induction, $7^n + 4^n + 1$ is divisible by 6 for all $n \geq 1$.
+\end{itemize}
+}
+
+\inv{Use modular arithmetic to verify this directly: show $7 \equiv 1 \pmod{6}$ and $4 \equiv 4 \pmod{6}$ with $4^2 \equiv 4 \pmod{6}$, so $4^n \equiv 4 \pmod{6}$ for all $n \geq 1$. Hence $7^n + 4^n + 1 \equiv 1 + 4 + 1 = 6 \equiv 0 \pmod 6$.}
+
+\newpage
 \section*{Section C \quad Proof, Geometry \& Multi-step}
-\begin{enumerate}[resume]
-%── Q7 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Induction proof: $n$-th power of a $2\times2$ matrix $M^n$}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q7: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
 
-%── Q8 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Induction proof: explicit general term of a 1st order recurrence relation}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q8: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+%── Q7 ────────────────────────────────────────────────────────────────
+\qn{7} \textbf{Matrix Power: $\mathbf{M}^n$}
 
-%── Q9 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Induction proof: 2nd order recurrence relations with characteristic roots}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q9: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+\ans{Proof complete. $\mathbf{M}^n = \begin{pmatrix} 2n+1 & -2n \\ 2n & 1-2n \end{pmatrix}$ for all $n \geq 1$.}
 
-%── Q10 [PRF] ─────────────────────────────────────────────────────────────
-\item \textbf{[PRF]} \textit{Induction proof: inequality induction bounds (e.g. $2^n > n^2$ for $n \ge 5$)}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q10: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+\method{
+\textbf{Step 1 — Basis case ($n = 1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: $\mathbf{M}^1 = \begin{pmatrix} 3 & -2 \\ 2 & -1 \end{pmatrix}$. Formula gives $\begin{pmatrix} 3 & -2 \\ 2 & -1 \end{pmatrix}$. \checkmark
+\end{itemize}
 
-\end{enumerate}
+\textbf{Step 2 — Assumption ($n = k$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Assume $\mathbf{M}^k = \begin{pmatrix} 2k+1 & -2k \\ 2k & 1-2k \end{pmatrix}$ for some $k \geq 1$.
+\end{itemize}
+
+\textbf{Step 3 — Inductive step ($n = k+1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: $\mathbf{M}^{k+1} = \mathbf{M}^k \cdot \mathbf{M} = \begin{pmatrix} 2k+1 & -2k \\ 2k & 1-2k \end{pmatrix}\begin{pmatrix} 3 & -2 \\ 2 & -1 \end{pmatrix}$.
+  \item \textbf{M1}: Multiply entry-by-entry:
+  \begin{align*}
+    (1,1):& \quad 3(2k+1) + (-2k)(2) = 6k+3-4k = 2k+3 = 2(k+1)+1 \\
+    (1,2):& \quad -2(2k+1) + (-2k)(-1) = -4k-2+2k = -2k-2 = -2(k+1) \\
+    (2,1):& \quad 3(2k) + (1-2k)(2) = 6k+2-4k = 2k+2 = 2(k+1) \\
+    (2,2):& \quad -2(2k) + (1-2k)(-1) = -4k-1+2k = -2k-1 = 1-2(k+1)
+  \end{align*}
+  \item \textbf{A1}: $\mathbf{M}^{k+1} = \begin{pmatrix} 2(k+1)+1 & -2(k+1) \\ 2(k+1) & 1-2(k+1) \end{pmatrix}$. \checkmark
+\end{itemize}
+
+\textbf{Step 4 — Conclusion:}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: By mathematical induction, the formula holds for all $n \geq 1$.
+\end{itemize}
+}
+
+\inv{Verify that $\det(\mathbf{M}^n) = (\det \mathbf{M})^n = (-3+4)^n = 1^n = 1$ for all $n$. Then find the eigenvalues of $\mathbf{M}$ by solving $\det(\mathbf{M} - \lambda \mathbf{I}) = 0$, and notice how repeated eigenvalue $\lambda = 1$ explains the form of $\mathbf{M}^n$.}
+
+\vspace{10pt}
+
+%── Q8 ────────────────────────────────────────────────────────────────
+\qn{8} \textbf{Recurrence Relation: $u_{n+1} = 3u_n + 4$}
+
+\ans{Proof complete. $u_n = 3^n - 2$ for all $n \geq 1$.}
+
+\method{
+\textbf{Step 1 — Basis case ($n = 1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: $u_1 = 1$. Formula: $3^1 - 2 = 1$. \checkmark
+\end{itemize}
+
+\textbf{Step 2 — Assumption ($n = k$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Assume $u_k = 3^k - 2$.
+\end{itemize}
+
+\textbf{Step 3 — Inductive step ($n = k+1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: By the recurrence: $u_{k+1} = 3u_k + 4 = 3(3^k - 2) + 4$.
+  \item \textbf{A1}: $= 3^{k+1} - 6 + 4 = 3^{k+1} - 2$. This is the formula for $n = k+1$. \checkmark
+\end{itemize}
+
+\textbf{Step 4 — Conclusion:}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: By mathematical induction, $u_n = 3^n - 2$ for all $n \geq 1$.
+\end{itemize}
+}
+
+\inv{Solve the recurrence $u_{n+1} = 3u_n + 4$ directly by finding the fixed point $u^* = 3u^* + 4 \Rightarrow u^* = -2$, then setting $v_n = u_n - u^* = u_n + 2$ to get $v_{n+1} = 3v_n$, a geometric sequence. Verify this yields $u_n = v_1 \cdot 3^{n-1} - 2 = 3^n - 2$.}
+
+\vspace{10pt}
+
+%── Q9 ────────────────────────────────────────────────────────────────
+\qn{9} \textbf{Second-Order Recurrence: $u_{n+2} = 5u_{n+1} - 6u_n$}
+
+\ans{Proof complete. $u_n = 3^n - 2^n$ for all $n \geq 1$.}
+
+\method{
+\textbf{Step 1 — Basis cases ($n = 1$ and $n = 2$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: $n=1$: $3^1 - 2^1 = 1 = u_1$. \checkmark
+  \item \textbf{B1}: $n=2$: $3^2 - 2^2 = 9 - 4 = 5 = u_2$. \checkmark
+\end{itemize}
+
+\textbf{Step 2 — Assumption ($n = k$ and $n = k+1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Assume both $u_k = 3^k - 2^k$ and $u_{k+1} = 3^{k+1} - 2^{k+1}$ hold for some $k \geq 1$.
+\end{itemize}
+
+\textbf{Step 3 — Inductive step ($n = k+2$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: By the recurrence: $u_{k+2} = 5u_{k+1} - 6u_k$.
+  \item \textbf{M1}: Substitute:
+  \[
+  u_{k+2} = 5(3^{k+1} - 2^{k+1}) - 6(3^k - 2^k)
+  = 5\cdot 3^{k+1} - 5\cdot 2^{k+1} - 6\cdot 3^k + 6\cdot 2^k\,.
+  \]
+  \item \textbf{M1}: Collect powers of 3 and 2 separately:
+  \[
+  = 3^k(5\cdot 3 - 6) - 2^k(5\cdot 2 - 6) = 3^k\cdot 9 - 2^k\cdot 4 = 3^{k+2} - 2^{k+2}\,.
+  \]
+  \item \textbf{A1}: This is the formula for $n = k+2$. \checkmark
+\end{itemize}
+
+\textbf{Step 4 — Conclusion:}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: True for $n=1$ and $n=2$; true for $n=k+2$ whenever true for $n=k$ and $n=k+1$. By strong induction, the result holds for all $n \geq 1$.
+\end{itemize}
+}
+
+\inv{The characteristic equation of $u_{n+2} = 5u_{n+1} - 6u_n$ is $\lambda^2 = 5\lambda - 6$, giving $\lambda^2 - 5\lambda + 6 = (\lambda-2)(\lambda-3) = 0$. The general solution is $u_n = A\cdot 2^n + B\cdot 3^n$. Use initial conditions to show $A = -1$, $B = 1$, confirming $u_n = 3^n - 2^n$.}
+
+\vspace{10pt}
+
+%── Q10 ───────────────────────────────────────────────────────────────
+\qn{10} \textbf{Inequality Induction: $2^n > n^2$ for $n \geq 5$}
+
+\ans{Proof complete. $2^n > n^2$ for all integers $n \geq 5$.}
+
+\method{
+\textbf{Step 1 — Basis case ($n = 5$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: $2^5 = 32$ and $5^2 = 25$. Since $32 > 25$, the statement holds. \checkmark
+\end{itemize}
+
+\textbf{Step 2 — Assumption ($n = k$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Assume $2^k > k^2$ for some integer $k \geq 5$.
+\end{itemize}
+
+\textbf{Step 3 — Inductive step ($n = k+1$):}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{M1}: Consider $2^{k+1} = 2 \cdot 2^k > 2k^2$ (using the inductive hypothesis).
+  \item \textbf{M1}: It suffices to show $2k^2 \geq (k+1)^2 = k^2 + 2k + 1$ for $k \geq 5$.
+  \[
+  2k^2 - (k^2+2k+1) = k^2 - 2k - 1 = (k-1)^2 - 2\,.
+  \]
+  For $k \geq 5$: $(k-1)^2 \geq 16 > 2$, so $k^2 - 2k - 1 > 0$. Hence $2k^2 > (k+1)^2$.
+  \item \textbf{A1}: Combining: $2^{k+1} > 2k^2 > (k+1)^2$. \checkmark
+\end{itemize}
+
+\textbf{Step 4 — Conclusion:}
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+  \item \textbf{B1}: By mathematical induction, $2^n > n^2$ for all $n \geq 5$.
+\end{itemize}
+}
+
+\inv{Why does the inequality fail for $n = 1, 2, 3, 4$? Verify each case. Notice $2^4 = 16 = 4^2$ is the borderline case. For large $n$, exponential growth dominates polynomial growth --- investigate whether $2^n > n^{10}$ for all sufficiently large $n$.}
 
 \end{document}

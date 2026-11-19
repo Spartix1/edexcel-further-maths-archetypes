@@ -1,5 +1,6 @@
 \documentclass[11pt,a4paper]{article}
 \input{../shared/preamble}
+\usetikzlibrary{arrows.meta,calc}
 \CPHeader{Matrices \& Linear Systems}{6}
 
 \begin{document}
@@ -10,90 +11,257 @@
 \section*{Section A \quad Procedural \& Direct Foundations \hfill{\normalfont\footnotesize(Questions 1--3)}}
 \begin{enumerate}
 %── Q1 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Determinant calculation for $2\times2$ and $3\times3$ matrices with algebraic entries}
+\item \textbf{[DIR]} The matrix $\mathbf{A}$ is given by
 \[
-\text{[Draft Question 1: Complete examination problem text to be populated]}
+\mathbf{A} = \begin{pmatrix} 2 & 1 & -1 \\ 1 & 3 & 2 \\ 3 & 2 & 1 \end{pmatrix}
 \]
-\hfill{\small\textbf{[4--5 marks]}}
+\begin{enumerate}
+  \item Evaluate $\det(\mathbf{A})$. \hfill{\small\textbf{[2]}}
+  \item Given that $\mathbf{B}$ is a non-singular $3 \times 3$ matrix such that $\det(\mathbf{A}\mathbf{B}) = 120$, find:
+  \begin{enumerate}[label=(\roman*)]
+    \item $\det(\mathbf{B}^{-1})$,
+    \item $\det(2\mathbf{B})$. \hfill{\small\textbf{[3]}}
+  \end{enumerate}
+\end{enumerate}
 
 %── Q2 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Inverse of $3\times3$ matrix via matrix of minors, cofactors, and adjugate}
+\item \textbf{[DIR]} The matrix $\mathbf{M}$ is defined by
 \[
-\text{[Draft Question 2: Complete examination problem text to be populated]}
+\mathbf{M} = \begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 1 \\ 1 & 1 & 2 \end{pmatrix}
 \]
-\hfill{\small\textbf{[4--5 marks]}}
+\begin{enumerate}
+  \item Show that $\det(\mathbf{M}) = -4$. \hfill{\small\textbf{[1]}}
+  \item Form the matrix of minors and the matrix of cofactors of $\mathbf{M}$. \hfill{\small\textbf{[3]}}
+  \item Hence determine the adjugate matrix $\operatorname{adj}(\mathbf{M})$ and write down $\mathbf{M}^{-1}$. \hfill{\small\textbf{[2]}}
+\end{enumerate}
 
 %── Q3 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Matrix equation solution $M\mathbf{x} = \mathbf{b}$ using the matrix inverse}
+\item \textbf{[DIR]} A system of simultaneous equations is given by
 \[
-\text{[Draft Question 3: Complete examination problem text to be populated]}
+\begin{aligned}
+x + 2y + z &= 8 \\
+2x + y + z &= 7 \\
+x + y + 2z &= 9
+\end{aligned}
 \]
-\hfill{\small\textbf{[4--5 marks]}}
+\begin{enumerate}
+  \item Express this system in the matrix form $\mathbf{M}\mathbf{x} = \mathbf{b}$. \hfill{\small\textbf{[1]}}
+  \item Using the matrix inverse $\mathbf{M}^{-1}$ obtained in Question~2, find the unique solution $(x, y, z)$. \hfill{\small\textbf{[4]}}
+\end{enumerate}
 
 \end{enumerate}
 
 \section*{Section B \quad Reverse Parameters \& Analysis \hfill{\normalfont\small(Questions 4--6)}}
 \begin{enumerate}[resume]
 %── Q4 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Singular matrices: solving for unknown parameter $k$ such that $\det(M) = 0$}
+\item \textbf{[REV]} The matrix $\mathbf{P}$ is parameterized by $k \in \mathbb{R}$:
 \[
-\text{[Draft Question 4: Complete examination problem text to be populated]}
+\mathbf{P} = \begin{pmatrix} 1 & 2 & k \\ 2 & k & 4 \\ 1 & 1 & 1 \end{pmatrix}
 \]
-\hfill{\small\textbf{[5--6 marks]}}
+\begin{enumerate}
+  \item Show that $\det(\mathbf{P}) = k(3 - k)$. \hfill{\small\textbf{[3]}}
+  \item State the values of $k$ for which $\mathbf{P}$ is singular. \hfill{\small\textbf{[1]}}
+  \item Hence state the set of values of $k$ for which $\mathbf{P}^{-1}$ exists. \hfill{\small\textbf{[1]}}
+\end{enumerate}
 
 %── Q5 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Inverting parameterized matrices and factoring polynomial determinants}
-\[
-\text{[Draft Question 5: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[5--6 marks]}}
+\item \textbf{[REV]}
+\begin{enumerate}
+  \item Prove from first principles that if $\mathbf{A}$ and $\mathbf{B}$ are non-singular $n \times n$ matrices, then
+  \[
+  (\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}
+  \]
+  \hfill{\small\textbf{[2]}}
+  \item The $2 \times 2$ matrices $\mathbf{M}$ and $\mathbf{N}$ satisfy $\mathbf{N}^{-1}\mathbf{M}\mathbf{N} = \begin{pmatrix} 3 & 0 \\ 0 & -1 \end{pmatrix}$.
+  \begin{enumerate}[label=(\roman*)]
+    \item Find $\det(\mathbf{M})$.
+    \item Evaluate $\det(\mathbf{M}^5)$.
+    \item Find the matrix $\mathbf{N}^{-1}\mathbf{M}^4\mathbf{N}$. \hfill{\small\textbf{[4]}}
+  \end{enumerate}
+\end{enumerate}
 
-%── Q6 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{System consistency: unique point of intersection of three non-parallel planes}
+%── Q6 [REV] ─────────────────────────────────────────────────────────────
+\item \textbf{[REV]} Consider the system of linear equations in $x, y, z$:
 \[
-\text{[Draft Question 6: Complete examination problem text to be populated]}
+\begin{aligned}
+x + y + 2z &= 4 \\
+2x - y + z &= 1 \\
+3x + ky + 3z &= d
+\end{aligned}
 \]
-\hfill{\small\textbf{[5--6 marks]}}
+where $k$ and $d$ are real constants.
+\begin{enumerate}
+  \item Show that the determinant of the coefficient matrix is $3k$. \hfill{\small\textbf{[2]}}
+  \item Given that the system does not have a unique solution:
+  \begin{enumerate}[label=(\roman*)]
+    \item state the value of $k$,
+    \item find the specific value of $d$ for which the system has infinitely many solutions,
+    \item describe the geometric arrangement of the three planes when $d$ takes this value, and when $d \neq 5$. \hfill{\small\textbf{[5]}}
+  \end{enumerate}
+\end{enumerate}
 
 \end{enumerate}
 
+\newpage
 \section*{Section C \quad Proof, Geometry \& Multi-step \hfill{\normalfont\small(Questions 7--10)}}
 \begin{enumerate}[resume]
 %── Q7 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{System inconsistency: geometric interpretation as a triangular prism}
+\item \textbf{[GEO]} Three planes $\Pi_1$, $\Pi_2$, and $\Pi_3$ have Cartesian equations
 \[
-\text{[Draft Question 7: Complete examination problem text to be populated]}
+\begin{aligned}
+\Pi_1 &: x - 2y + z = 3 \\
+\Pi_2 &: 2x + y - z = 4 \\
+\Pi_3 &: 3x - y = 8
+\end{aligned}
 \]
-\hfill{\small\textbf{[6--8 marks]}}
+\begin{enumerate}
+  \item Show that the three planes do not have any common point of intersection. \hfill{\small\textbf{[3]}}
+  \item Verify that no two of the planes are parallel. \hfill{\small\textbf{[2]}}
+  \item Deduce that the three planes form the faces of a triangular prism, and find a direction vector parallel to the three lines of pairwise intersection. \hfill{\small\textbf{[3]}}
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, >=Stealth]
+  % Define vertices of the triangular prism faces
+  \coordinate (A1) at (0, 0);
+  \coordinate (B1) at (3.2, 0.4);
+  \coordinate (C1) at (1.2, 2.4);
+  \coordinate (A2) at (4.0, 1.4);
+  \coordinate (B2) at (7.2, 1.8);
+  \coordinate (C2) at (5.2, 3.8);
+
+  % Shading plane faces
+  \fill[blue!12, opacity=0.7] (A1) -- (B1) -- (B2) -- (A2) -- cycle;
+  \fill[orange!12, opacity=0.7] (A1) -- (C1) -- (C2) -- (A2) -- cycle;
+  \fill[teal!12, opacity=0.7] (B1) -- (C1) -- (C2) -- (B2) -- cycle;
+
+  % Parallel lines of intersection (extended slightly)
+  \draw[thick, primary, shorten <=-14pt, shorten >=-18pt] (A1) -- (A2) node[above left, pos=1.05] {\footnotesize $L_1 = \Pi_1 \cap \Pi_2$};
+  \draw[thick, primary, shorten <=-14pt, shorten >=-18pt] (B1) -- (B2) node[below right, pos=1.05] {\footnotesize $L_2 = \Pi_1 \cap \Pi_3$};
+  \draw[thick, primary, shorten <=-14pt, shorten >=-18pt] (C1) -- (C2) node[above, pos=1.05] {\footnotesize $L_3 = \Pi_2 \cap \Pi_3$};
+
+  % Triangular cross-sections
+  \draw[thick, darkgray] (A1) -- (B1) -- (C1) -- cycle;
+  \draw[thick, darkgray, dashed] (A2) -- (B2) -- (C2) -- cycle;
+
+  % Plane labels
+  \node[darkgray, font=\bfseries\footnotesize] at (3.4, 0.7) {$\Pi_1$};
+  \node[darkgray, font=\bfseries\footnotesize] at (1.8, 1.7) {$\Pi_2$};
+  \node[darkgray, font=\bfseries\footnotesize] at (4.5, 2.3) {$\Pi_3$};
+
+  \node[align=center, font=\scriptsize\itshape, text=medgray] at (3.6, -0.6) {Figure 6.1: Three planes forming an open triangular prism with three parallel intersection lines};
+\end{tikzpicture}
+\end{center}
 
 %── Q8 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{System dependency: infinite solutions intersecting along a common line (sheaf)}
+\item \textbf{[GEO]} The planes $\Pi_1$, $\Pi_2$, and $\Pi_3$ are defined by
 \[
-\text{[Draft Question 8: Complete examination problem text to be populated]}
+\begin{aligned}
+\Pi_1 &: x + 2y - z = 2 \\
+\Pi_2 &: 2x - y + 3z = 9 \\
+\Pi_3 &: 4x + 3y + z = 13
+\end{aligned}
 \]
-\hfill{\small\textbf{[6--8 marks]}}
+\begin{enumerate}
+  \item Show that $\det(\mathbf{M}) = 0$, where $\mathbf{M}$ is the matrix of coefficients of the system. \hfill{\small\textbf{[2]}}
+  \item Show that the system is consistent, and explain why the geometric arrangement is a sheaf of planes intersecting in a common straight line. \hfill{\small\textbf{[5]}}
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, >=Stealth]
+  % Common line of intersection L
+  \coordinate (Lstart) at (-0.5, -0.2);
+  \coordinate (Lend) at (5.5, 2.2);
+
+  % Plane 1
+  \fill[blue!15, opacity=0.5] (-1.2, 1.3) -- (Lstart) -- (Lend) -- (5.2, 3.7) -- cycle;
+  \draw[thin, blue!60] (-1.2, 1.3) -- (Lstart) -- (Lend) -- (5.2, 3.7) -- cycle;
+  \node[blue!80!black, font=\footnotesize\bfseries] at (-0.9, 1.5) {$\Pi_1$};
+
+  % Plane 2
+  \fill[orange!15, opacity=0.5] (0.8, -1.3) -- (Lstart) -- (Lend) -- (4.2, 3.7) -- cycle;
+  \draw[thin, orange!70] (0.8, -1.3) -- (Lstart) -- (Lend) -- (4.2, 3.7) -- cycle;
+  \node[orange!80!black, font=\footnotesize\bfseries] at (0.9, -1.5) {$\Pi_2$};
+
+  % Plane 3
+  \fill[teal!15, opacity=0.5] (2.6, -1.1) -- (Lstart) -- (Lend) -- (2.6, 3.1) -- cycle;
+  \draw[thin, teal!70] (2.6, -1.1) -- (Lstart) -- (Lend) -- (2.6, 3.1) -- cycle;
+  \node[teal!80!black, font=\footnotesize\bfseries] at (2.7, -1.3) {$\Pi_3$};
+
+  % Common intersection line
+  \draw[very thick, red!85!black, shorten <=-16pt, shorten >=-18pt] (Lstart) -- (Lend) node[above right, pos=1.05] {\footnotesize Common line $L$};
+
+  \node[align=center, font=\scriptsize\itshape, text=medgray] at (2.5, -1.9) {Figure 6.2: A sheaf of three planes meeting along a single shared line of intersection};
+\end{tikzpicture}
+\end{center}
 
 %── Q9 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{Finding the vector equation of the line of intersection for a sheaf}
-\[
-\text{[Draft Question 9: Complete examination problem text to be populated]}
-\]
-\hfill{\small\textbf{[6--8 marks]}}
+\item \textbf{[GEO]} For the system of planes in Question~8:
+\begin{enumerate}
+  \item By setting $z = \lambda$, find expressions for $x$ and $y$ in terms of $\lambda$. \hfill{\small\textbf{[4]}}
+  \item Hence write down a vector equation of the line of intersection in the form $\mathbf{r} = \mathbf{a} + \lambda \mathbf{d}$, where $\mathbf{a}$ and $\mathbf{d}$ are integer vectors. \hfill{\small\textbf{[2]}}
+  \item Verify that every point on this line satisfies the equation of plane $\Pi_3$. \hfill{\small\textbf{[2]}}
+\end{enumerate}
 
 %── Q10 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{Geometric arrangements involving parallel or coincident planes}
+\item \textbf{[GEO]} Three planes are defined by
 \[
-\text{[Draft Question 10: Complete examination problem text to be populated]}
+\begin{aligned}
+\Pi_1 &: 2x - y + 3z = 4 \\
+\Pi_2 &: 4x - 2y + 6z = 15 \\
+\Pi_3 &: x + 2y - z = 1
+\end{aligned}
 \]
-\hfill{\small\textbf{[6--8 marks]}}
+\begin{enumerate}
+  \item Show that $\Pi_1$ and $\Pi_2$ are parallel and distinct. \hfill{\small\textbf{[2]}}
+  \item Find the Cartesian and vector direction of the line of intersection of $\Pi_1$ and $\Pi_3$, and show that the intersection of $\Pi_2$ and $\Pi_3$ is a parallel line. \hfill{\small\textbf{[4]}}
+  \item Describe fully the geometric arrangement of the three planes, stating the number of solutions to the simultaneous system. \hfill{\small\textbf{[2]}}
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.9, >=Stealth]
+  % Plane Pi_1 (lower parallel plane)
+  \coordinate (P1A) at (0, 0);
+  \coordinate (P1B) at (4.5, 0);
+  \coordinate (P1C) at (6.0, 1.4);
+  \coordinate (P1D) at (1.5, 1.4);
+  \fill[blue!12, opacity=0.6] (P1A) -- (P1B) -- (P1C) -- (P1D) -- cycle;
+  \draw[thin, blue!60] (P1A) -- (P1B) -- (P1C) -- (P1D) -- cycle;
+  \node[blue!80!black, font=\footnotesize\bfseries] at (0.4, 0.3) {$\Pi_1$};
+
+  % Plane Pi_2 (upper parallel plane)
+  \coordinate (P2A) at (0, 1.8);
+  \coordinate (P2B) at (4.5, 1.8);
+  \coordinate (P2C) at (6.0, 3.2);
+  \coordinate (P2D) at (1.5, 3.2);
+  \fill[blue!12, opacity=0.6] (P2A) -- (P2B) -- (P2C) -- (P2D) -- cycle;
+  \draw[thin, blue!60] (P2A) -- (P2B) -- (P2C) -- (P2D) -- cycle;
+  \node[blue!80!black, font=\footnotesize\bfseries] at (0.4, 2.1) {$\Pi_2$};
+
+  % Plane Pi_3 (transversal plane)
+  \coordinate (T1) at (2.4, -0.6);
+  \coordinate (T2) at (5.2, 0.9);
+  \coordinate (T3) at (4.0, 4.1);
+  \coordinate (T4) at (1.2, 2.6);
+  \fill[orange!18, opacity=0.65] (T1) -- (T2) -- (T3) -- (T4) -- cycle;
+  \draw[thin, orange!70] (T1) -- (T2) -- (T3) -- (T4) -- cycle;
+  \node[orange!80!black, font=\footnotesize\bfseries] at (1.1, 2.9) {$\Pi_3$};
+
+  % Intersection lines
+  \draw[thick, red!85!black, shorten <=-10pt, shorten >=-10pt] (2.0, 0.7) -- (4.2, 0.7) node[right] {\footnotesize $L_1 = \Pi_1 \cap \Pi_3$};
+  \draw[thick, red!85!black, shorten <=-10pt, shorten >=-10pt] (2.0, 2.5) -- (4.2, 2.5) node[right] {\footnotesize $L_2 = \Pi_2 \cap \Pi_3$};
+
+  \node[align=center, font=\scriptsize\itshape, text=medgray] at (3.0, -1.2) {Figure 6.3: Two parallel planes cut transversally by a third plane producing two parallel intersection lines};
+\end{tikzpicture}
+\end{center}
 
 \end{enumerate}
 
-\vspace{14pt}
+\vspace{10pt}
 \begin{center}
-  {\color{accentline}\rule{0.4\textwidth}{0.4pt}}\\[5pt]
-  {\footnotesize\itshape\color{medgray} ``Mathematics is not about numbers, equations, computations, or algorithms: it is about understanding.''}\\[2pt]
-  {\scriptsize\scshape\color{medgray} William Paul Thurston}\\[5pt]
+  {\color{accentline}\rule{0.4\textwidth}{0.4pt}}\\[4pt]
+  {\footnotesize\itshape\color{medgray} ``Mathematics is the queen of the sciences and number theory is the queen of mathematics.''}\\[2pt]
+  {\scriptsize\scshape\color{medgray} Carl Friedrich Gauss}\\[4pt]
   {\color{accentline}\rule{0.4\textwidth}{0.4pt}}
 \end{center}
 

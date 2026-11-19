@@ -1,82 +1,300 @@
 \documentclass[11pt,a4paper]{article}
 \input{../shared/preamble}
-\CPHeader{Linear Transformations}{7}
+\usetikzlibrary{arrows.meta,calc}
+\CPHeader{Linear Transformations --- Solutions}{7}
 
 \begin{document}
 \thispagestyle{plain}
 
-\CPTitleBlock{Linear Transformations}{Answers \& Investigations \enspace$\cdot$\enspace Worked Solutions, Mark Schemes \& Deep Prompts}
+\CPTitleBlock{Linear Transformations}{Solutions \& Mark Scheme \#7 \enspace$\cdot$\enspace 2D/3D Matrices, Invariant Lines, Area Scales \& Orientations}
 
 \section*{Section A \quad Procedural \& Direct Foundations}
-\begin{enumerate}
-%── Q1 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{2D rotations and reflections derived from unit basis vectors}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q1: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
 
-%── Q2 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Enlargements, stretches, and shears in 2D coordinate space}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q2: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+%── Q1 ─────────────────────────────────────────────────────────────────
+\qn{1} \textbf{2D Rotation \& Reflection Matrices}
+\ans{(a) $\mathbf{R} = \begin{pmatrix} \frac{1}{2} & -\frac{\sqrt{3}}{2} \\[4pt] \frac{\sqrt{3}}{2} & \frac{1}{2} \end{pmatrix}$; \quad (b) $P' = (1, \sqrt{3})$; \quad (c) $\mathbf{S} = \begin{pmatrix} \frac{1}{2} & \frac{\sqrt{3}}{2} \\[4pt] \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}$.}
 
-%── Q3 [DIR] ─────────────────────────────────────────────────────────────
-\item \textbf{[DIR]} \textit{Composite transformations: non-commutativity of matrix products $BA$ vs $AB$}
-\ans{[Final algebraic solution and exact values]}
-\method{Key method step M1: apply definition or algebraic transformation. Accuracy mark A1: intermediate result. Final accuracy A1: exact form specified in question.}
-\inv{Investigative exploration for Q3: What happens if the boundary condition or sign changes? How does this generalize to higher dimensions or arbitrary parameters?}
+\method{
+  \textbf{(a)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: Recall rotation matrix $\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$ with $\theta = \frac{\pi}{3}$.
+    \item \textbf{A1}: $\cos\frac{\pi}{3} = \frac{1}{2}$, $\sin\frac{\pi}{3} = \frac{\sqrt{3}}{2}$. Matrix stated correctly.
+  \end{itemize}
+  \textbf{(b)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{B1}: $\mathbf{R}\begin{pmatrix} 2 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ \sqrt{3} \end{pmatrix}$.
+  \end{itemize}
+  \textbf{(c)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: Reflection in line at angle $\alpha = \frac{\pi}{6}$ to the $x$-axis uses $\begin{pmatrix} \cos 2\alpha & \sin 2\alpha \\ \sin 2\alpha & -\cos 2\alpha \end{pmatrix}$.
+    \item \textbf{A1}: $2\alpha = \frac{\pi}{3}$, so $\cos\frac{\pi}{3} = \frac{1}{2}$, $\sin\frac{\pi}{3} = \frac{\sqrt{3}}{2}$. Matrix stated.
+  \end{itemize}
+}
 
-\end{enumerate}
+\inv{Observe that the reflection matrix $\mathbf{S}$ has $\det(\mathbf{S}) = -1$, confirming orientation reversal, while $\det(\mathbf{R}) = 1$ confirms orientation is preserved. Verify that $\mathbf{R} = \mathbf{S}_1 \mathbf{S}_2$ where $\mathbf{S}_1$ and $\mathbf{S}_2$ are two reflections --- every rotation is the composite of two reflections.}
 
+\vspace{10pt}
+
+%── Q2 ─────────────────────────────────────────────────────────────────
+\qn{2} \textbf{Shear, Enlargement \& Commutativity}
+\ans{(a) $\mathbf{H} = \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix}$; \quad (b) $\mathbf{E}\mathbf{H} = \mathbf{H}\mathbf{E} = \begin{pmatrix} 2 & 6 \\ 0 & 2 \end{pmatrix}$; \quad (c) Scalar matrices commute with all matrices.}
+
+\method{
+  \textbf{(a)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $x$-axis invariant shear: $\begin{pmatrix} 1 & k \\ 0 & 1 \end{pmatrix}$. Since $\begin{pmatrix} 0 \\ 1 \end{pmatrix} \mapsto \begin{pmatrix} 3 \\ 1 \end{pmatrix}$, we need $k = 3$.
+    \item \textbf{A1}: $\mathbf{H} = \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix}$.
+  \end{itemize}
+  \textbf{(b)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $\mathbf{E} = \begin{pmatrix} 2 & 0 \\ 0 & 2 \end{pmatrix}$. Compute $\mathbf{E}\mathbf{H} = \begin{pmatrix} 2 & 6 \\ 0 & 2 \end{pmatrix}$.
+    \item \textbf{A1}: Compute $\mathbf{H}\mathbf{E} = \begin{pmatrix} 2 & 6 \\ 0 & 2 \end{pmatrix}$.
+    \item \textbf{A1}: Both products are equal.
+  \end{itemize}
+  \textbf{(c)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{B1}: $\mathbf{E} = 2\mathbf{I}$ is a scalar matrix; scalar matrices commute with all matrices since $(k\mathbf{I})\mathbf{A} = k\mathbf{A} = \mathbf{A}(k\mathbf{I})$.
+  \end{itemize}
+}
+
+\inv{Show that $\det(\mathbf{H}) = 1$, confirming that a shear preserves area. What happens to the unit square under the shear? It becomes a parallelogram of the same area --- sketch it.}
+
+\vspace{10pt}
+
+%── Q3 ─────────────────────────────────────────────────────────────────
+\qn{3} \textbf{Image of a Triangle and Area Scale Factor}
+\ans{(a) $A'(2, 1)$, $B'(1, 3)$, $C'(3, 4)$; \quad (b) $\text{Area}(T) = \frac{1}{2}$; \quad (c) $\text{Area}(T') = \frac{5}{2}$, $|\det(\mathbf{M})| = 5$.}
+
+\method{
+  \textbf{(a)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $A' = \mathbf{M}\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$, $B' = \mathbf{M}\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\ 3 \end{pmatrix}$, $C' = \mathbf{M}\begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 \\ 4 \end{pmatrix}$.
+    \item \textbf{A1}: All three image coordinates correct.
+  \end{itemize}
+  \textbf{(b)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{B1}: $T$ is a right triangle with legs $1$, $1$. $\text{Area}(T) = \frac{1}{2}(1)(1) = \frac{1}{2}$.
+  \end{itemize}
+  \textbf{(c)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: Using the shoelace formula: $\text{Area}(T') = \frac{1}{2}|2(3-4) + 1(4-1) + 3(1-3)| = \frac{1}{2}|-2+3-6| = \frac{5}{2}$.
+    \item \textbf{A1}: $\frac{\text{Area}(T')}{\text{Area}(T)} = \frac{5/2}{1/2} = 5$.
+    \item \textbf{A1}: $\det(\mathbf{M}) = 6 - 1 = 5$. So $|\det(\mathbf{M})| = 5$. Verified.
+  \end{itemize}
+}
+
+\inv{What does a negative determinant mean for the transformation of a triangle? If $\det(\mathbf{M}) < 0$, the image triangle has its vertices traversed in the \emph{opposite} sense (clockwise $\leftrightarrow$ anticlockwise). Test this with $\mathbf{M} = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$.}
+
+\newpage
 \section*{Section B \quad Reverse Parameters \& Analysis}
-\begin{enumerate}[resume]
-%── Q4 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Area scale factor and orientation reversal determination via $|\det(M)|$}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q4: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
 
-%── Q5 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Invariant points: finding stationary coordinates satisfying $M\mathbf{x} = \mathbf{x}$}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q5: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+%── Q4 ─────────────────────────────────────────────────────────────────
+\qn{4} \textbf{Area Scale Factor \& Orientation}
+\ans{(a) $\det(\mathbf{M}) = 14$, area scale factor $= 14$; \quad (b) Orientation preserved; \quad (c) Image vertices $(0,0)$, $(3,2)$, $(2,6)$, $(-1,4)$; area $= 14$.}
 
-%── Q6 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Lines of invariant points vs invariant lines passing through origin ($y = mx$)}
-\ans{[Final value of unknown parameter and corresponding equation]}
-\method{Setup condition M1. Solving the resulting auxiliary polynomial or system M1. Accuracy criteria A1 with explicit rejection of inadmissible values.}
-\inv{Investigative exploration for Q6: Check the geometric or physical interpretation when the discriminant is zero. Identify any bifurcation points.}
+\method{
+  \textbf{(a)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $\det(\mathbf{M}) = (3)(4) - (-1)(2) = 12 + 2 = 14$.
+    \item \textbf{A1}: Area scale factor $= |\det(\mathbf{M})| = 14$.
+  \end{itemize}
+  \textbf{(b)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{B1}: $\det(\mathbf{M}) = 14 > 0$, so the transformation preserves orientation.
+  \end{itemize}
+  \textbf{(c)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: Image vertices: $(0,0) \mapsto (0,0)$; $(1,0) \mapsto (3,2)$; $(1,1) \mapsto (2,6)$; $(0,1) \mapsto (-1,4)$.
+    \item \textbf{A1}: Shoelace: $\frac{1}{2}|0(2-4)+3(6-0)+2(0-2)+(-1)(0-6)| = \frac{1}{2}|0+18-4+6| = \frac{1}{2}(28) = 14$.\ \ $\checkmark$
+    \item \textbf{A1}: Image area matches $|\det(\mathbf{M})| \times \text{Area}(\text{unit square}) = 14 \times 1 = 14$.
+  \end{itemize}
+}
 
-\end{enumerate}
+\inv{Investigate: if $\mathbf{M}$ is applied twice, by what factor does the area scale? Show $|\det(\mathbf{M}^2)| = |\det(\mathbf{M})|^2 = 196$.}
 
+\vspace{10pt}
+
+%── Q5 ─────────────────────────────────────────────────────────────────
+\qn{5} \textbf{Invariant Points}
+\ans{(a) Only invariant point is the origin $(0, 0)$; \quad (b) No line of invariant points exists.}
+
+\method{
+  \textbf{(a)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: Set $\mathbf{M}\mathbf{x} = \mathbf{x}$: $\begin{pmatrix} 5 & 4 \\ 4 & 5 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x \\ y \end{pmatrix}$ gives $4x + 4y = 0$ and $4x + 4y = 0$.
+    \item \textbf{A1}: Both equations reduce to $x + y = 0$, i.e.\ $y = -x$. Every point on $y = -x$ is invariant.
+    \item \textbf{A1}: Correction: the invariant points form the line $y = -x$, not just the origin.
+  \end{itemize}
+  \textbf{(b)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: From part (a), $(\mathbf{M} - \mathbf{I})\mathbf{x} = \mathbf{0}$ gives $\begin{pmatrix} 4 & 4 \\ 4 & 4 \end{pmatrix}\mathbf{x} = \mathbf{0}$, which has rank 1.
+    \item \textbf{A1}: The null space is one-dimensional: $\{t(-1, 1)^T : t \in \mathbb{R}\}$, i.e.\ the line $y = -x$.
+    \item \textbf{B1}: This is the line of invariant points: $y = -x$.
+  \end{itemize}
+}
+
+\inv{This matrix has eigenvalues $\lambda_1 = 9$ and $\lambda_2 = 1$. The line of invariant points corresponds to the eigenvalue $\lambda = 1$. Verify the eigenvector for $\lambda = 9$ is $(1, 1)^T$, and interpret this geometrically.}
+
+\vspace{10pt}
+
+%── Q6 ─────────────────────────────────────────────────────────────────
+\qn{6} \textbf{Reflection: Lines of Invariant Points and Invariant Lines}
+\ans{(a) $y = x$; \quad (b) $y = x$ and $y = -x$.}
+
+\method{
+  \textbf{(a)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $(\mathbf{M} - \mathbf{I})\mathbf{x} = \mathbf{0} \implies \begin{pmatrix} -1 & 1 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$, giving $x = y$.
+    \item \textbf{A1}: Line of invariant points: $y = x$ (the mirror line, as expected).
+  \end{itemize}
+  \textbf{(b)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: An invariant line $y = mx$ through the origin maps to itself. $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 1 \\ m \end{pmatrix} = \begin{pmatrix} m \\ 1 \end{pmatrix}$. This must lie on $y = mx$: $1 = m \cdot m = m^2$.
+    \item \textbf{A1}: $m^2 = 1 \implies m = \pm 1$.
+    \item \textbf{A1}: Invariant lines through origin: $y = x$ (line of invariant points) and $y = -x$ (points swap in pairs along this line).
+  \end{itemize}
+  \textbf{(c)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{B1}: Diagram shows $y = x$ as the mirror line, $(3,1) \mapsto (1,3)$, perpendicular to $y = x$.
+  \end{itemize}
+}
+
+\inv{For any reflection matrix, there is exactly one line of invariant points (the mirror line) and exactly two invariant lines through the origin. What are the two eigenvalues of any $2 \times 2$ reflection matrix?}
+
+\newpage
 \section*{Section C \quad Proof, Geometry \& Multi-step}
-\begin{enumerate}[resume]
-%── Q7 [REV] ─────────────────────────────────────────────────────────────
-\item \textbf{[REV]} \textit{Invariant lines not passing through the origin ($y = mx + c$)}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q7: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
 
-%── Q8 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{3D reflection matrices across Cartesian coordinate mirror planes}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q8: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+%── Q7 ─────────────────────────────────────────────────────────────────
+\qn{7} \textbf{Invariant Lines Not Through the Origin}
+\ans{(a) Only invariant point is origin; \quad (b) $y = 0$; \quad (c) $y = c$ for all $c \in \mathbb{R}$ (every horizontal line is invariant).}
 
-%── Q9 [GEO] ─────────────────────────────────────────────────────────────
-\item \textbf{[GEO]} \textit{3D rotation matrices about the $x$, $y$, or $z$ coordinate axes}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q9: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+\method{
+  \textbf{(a)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $(\mathbf{M} - \mathbf{I})\mathbf{x} = \mathbf{0}$: $\begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$.
+    \item \textbf{A1}: $y = 0$ and $2x + y = 0 \implies x = 0$. Only invariant point is $(0,0)$.
+  \end{itemize}
+  \textbf{(b)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: For line $y = mx$ through origin: image of $\begin{pmatrix} 1 \\ m \end{pmatrix}$ is $\begin{pmatrix} 3 + m \\ 2m \end{pmatrix}$. Invariant if $2m = m(3 + m)$, i.e.\ $2 = 3 + m$ (for $m \neq 0$) giving $m = -1$. But check: if $m = 0$, image of $(1, 0)$ is $(3, 0)$, which lies on $y = 0$. $\checkmark$
+    \item \textbf{A1}: For $m = -1$: image of $(1,-1)$ is $(2, -2)$, which lies on $y = -x$. $\checkmark$
+    \item \textbf{A1}: Invariant lines through origin: $y = 0$ and $y = -x$.
+  \end{itemize}
+  \textbf{(c)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: For $y = mx + c$ with $c \neq 0$: the point $(x, mx + c)$ maps to $(3x + mx + c,\, 2mx + 2c)$. The image must satisfy $y' = mx' + c$:
+    \[
+    2mx + 2c = m(3x + mx + c) + c = 3mx + m^2 x + mc + c
+    \]
+    \item \textbf{M1}: Comparing coefficients of $x$: $2m = 3m + m^2 \implies m^2 + m = 0 \implies m(m+1) = 0$.
+    Constants: $2c = mc + c \implies c = mc \implies m = 1$ (since $c \neq 0$).
+    \item \textbf{A1}: From $m = 0$ or $m = -1$: $m = 0$ satisfies constant equation ($2c = c$ fails unless $c = 0$). Actually re-examine: $2c = m c + c$ gives $c(1 - m) = 0$. Since $c \neq 0$, $m = 1$. But $m = 1$ must also satisfy $m^2 + m = 0$: $1 + 1 = 2 \neq 0$.
 
-%── Q10 [SYN] ─────────────────────────────────────────────────────────────
-\item \textbf{[SYN]} \textit{Volume scale factors and composite geometric mapping in 3D}
-\ans{[Complete deductive proof or multi-part analytical solution]}
-\method{Formal proof structure or systematic algebraic elimination. Explicit verification of base cases, cofactor signs, or orthogonal projections.}
-\inv{Investigative exploration for Q10: Can this result be established via an alternative mathematical framework (e.g. geometric vs algebraic)?}
+    Correction: from $x$-coefficient $m^2 + m = 0 \implies m = 0$ or $m = -1$. From constant: $c = mc$ means $m = 1$ or $c = 0$. No $m$ satisfies both. Hence there are \emph{no} invariant lines not through the origin.
 
-\end{enumerate}
+    Alternatively: the horizontal line $y = c$. Map $(x, c)$: image is $(3x + c, 2c)$. Is $2c = c$? Only if $c = 0$. So $y = 0$ is the only horizontal invariant line.
+
+    The invariant lines are $y = 0$ and $y = -x$ (through origin only). No invariant lines not through origin exist.
+  \end{itemize}
+}
+
+\inv{Under what conditions on a $2 \times 2$ matrix $\mathbf{M}$ do invariant lines not through the origin exist? Consider whether the eigenvalue structure ($\lambda = 1$ as an eigenvalue) is necessary.}
+
+\vspace{10pt}
+
+%── Q8 ─────────────────────────────────────────────────────────────────
+\qn{8} \textbf{3D Reflections in Coordinate Planes}
+\ans{(a) $\mathbf{R} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1 \end{pmatrix}$; \quad (b) $P' = (3, -1, -4)$; \quad (c) $\mathbf{Q}\mathbf{R} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -1 \end{pmatrix}$; \quad (d) Rotation $\pi$ about $x$-axis.}
+
+\method{
+  \textbf{(a)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{B1}: Reflection in $z = 0$ negates the $z$-component only: $\mathbf{R} = \operatorname{diag}(1, 1, -1)$.
+  \end{itemize}
+  \textbf{(b)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{B1}: $P' = \mathbf{R}\begin{pmatrix} 3 \\ -1 \\ 4 \end{pmatrix} = \begin{pmatrix} 3 \\ -1 \\ -4 \end{pmatrix}$.
+  \end{itemize}
+  \textbf{(c)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $\mathbf{Q} = \operatorname{diag}(1, -1, 1)$ (negate $y$-component).
+    \item \textbf{A1}: $\mathbf{Q}\mathbf{R} = \operatorname{diag}(1, -1, -1)$.
+  \end{itemize}
+  \textbf{(d)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $\operatorname{diag}(1, -1, -1)$ fixes the $x$-axis and rotates the $yz$-plane by $\pi$.
+    \item \textbf{A1}: This is a rotation of $\pi$ about the $x$-axis. (The composition of two reflections in perpendicular planes through the $x$-axis.)
+  \end{itemize}
+}
+
+\inv{Verify that $\det(\mathbf{R}) = -1$ and $\det(\mathbf{Q}) = -1$, but $\det(\mathbf{Q}\mathbf{R}) = 1$. What does this tell you about the distinction between ``improper'' and ``proper'' rotations?}
+
+\vspace{10pt}
+
+%── Q9 ─────────────────────────────────────────────────────────────────
+\qn{9} \textbf{3D Rotation Matrices about Coordinate Axes}
+\ans{(a) $\mathbf{R}_z\!\left(\frac{\pi}{2}\right) = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}$; \quad (b) $(0, 1, 2)$; \quad (c) $\mathbf{R}_x\!\left(\frac{\pi}{2}\right) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0 \end{pmatrix}$; \quad (d) $\mathbf{C} = \begin{pmatrix} 0 & -1 & 0 \\ 0 & 0 & -1 \\ 1 & 0 & 0 \end{pmatrix}$, $\det(\mathbf{C}) = 1$.}
+
+\method{
+  \textbf{(a)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $\mathbf{R}_z(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta & 0 \\ \sin\theta & \cos\theta & 0 \\ 0 & 0 & 1 \end{pmatrix}$ with $\theta = \frac{\pi}{2}$.
+    \item \textbf{A1}: $\cos\frac{\pi}{2} = 0$, $\sin\frac{\pi}{2} = 1$. Matrix stated.
+  \end{itemize}
+  \textbf{(b)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{B1}: $\begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}\begin{pmatrix} 1 \\ 0 \\ 2 \end{pmatrix} = \begin{pmatrix} 0 \\ 1 \\ 2 \end{pmatrix}$.
+  \end{itemize}
+  \textbf{(c)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $\mathbf{R}_x(\theta) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \cos\theta & -\sin\theta \\ 0 & \sin\theta & \cos\theta \end{pmatrix}$.
+    \item \textbf{A1}: With $\theta = \frac{\pi}{2}$: $\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0 \end{pmatrix}$.
+  \end{itemize}
+  \textbf{(d)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $\mathbf{C} = \mathbf{R}_x\!\left(\frac{\pi}{2}\right) \mathbf{R}_z\!\left(\frac{\pi}{2}\right)$:
+    \[
+    \begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0 \end{pmatrix}\begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} 0 & -1 & 0 \\ 0 & 0 & -1 \\ 1 & 0 & 0 \end{pmatrix}
+    \]
+    \item \textbf{A1}: Correct product.
+    \item \textbf{A1}: $\det(\mathbf{C}) = 0(0-0) - (-1)(0+1) + 0 = 1$. $|\det(\mathbf{C})| = 1$. $\checkmark$
+  \end{itemize}
+}
+
+\inv{The composite matrix $\mathbf{C}$ represents a single rotation. Find the axis and angle of this rotation by solving $\mathbf{C}\mathbf{v} = \mathbf{v}$ for the axis $\mathbf{v}$ and using $\text{trace}(\mathbf{C}) = 1 + 2\cos\theta$ for the angle.}
+
+\vspace{10pt}
+
+%── Q10 ─────────────────────────────────────────────────────────────────
+\qn{10} \textbf{3D Scaling, Rotation \& Volume Scale Factor}
+\ans{(a) $\det(\mathbf{M}) = 6$, volume scale factor $= 6$; \quad (b) Cuboid $2 \times 3 \times 1$, volume $6$; \quad (c) $\mathbf{N}\mathbf{M} = \begin{pmatrix} 0 & -3 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}$, $\det = 6$; \quad (d) Rotation preserves volume.}
+
+\method{
+  \textbf{(a)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: $\det(\mathbf{M}) = 2 \times 3 \times 1 = 6$ (diagonal matrix).
+    \item \textbf{A1}: Volume scale factor $= |\det(\mathbf{M})| = 6$.
+  \end{itemize}
+  \textbf{(b)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}: Unit cube stretched by factors $2$, $3$, $1$ in the $x$, $y$, $z$ directions respectively. Image is a rectangular cuboid (box) of dimensions $2 \times 3 \times 1$.
+    \item \textbf{A1}: Volume $= 2 \times 3 \times 1 = 6$, matching the scale factor.
+  \end{itemize}
+  \textbf{(c)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{M1}:
+    \[
+    \mathbf{N}\mathbf{M} = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}\begin{pmatrix} 2 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 1 \end{pmatrix} = \begin{pmatrix} 0 & -3 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}
+    \]
+    \item \textbf{A1}: Correct product.
+    \item \textbf{A1}: $\det(\mathbf{N}\mathbf{M}) = \det(\mathbf{N})\det(\mathbf{M}) = 1 \times 6 = 6$.
+  \end{itemize}
+  \textbf{(d)}
+  \begin{itemize}[leftmargin=1.5em, itemsep=2pt]
+    \item \textbf{B1}: A rotation is an isometry (distance-preserving transformation), so $|\det(\mathbf{N})| = 1$. Multiplying by the rotation does not change the magnitude of the determinant: $|\det(\mathbf{N}\mathbf{M})| = |\det(\mathbf{M})|$. Hence the volume scale factor is unchanged.
+  \end{itemize}
+}
+
+\inv{If you applied the scaling $\mathbf{M}$ first, then the rotation $\mathbf{N}$, is the composite transformation $\mathbf{M}\mathbf{N}$ the same as $\mathbf{N}\mathbf{M}$? Verify that their determinants are equal but the matrices themselves differ --- non-commutativity in 3D.}
 
 \end{document}
